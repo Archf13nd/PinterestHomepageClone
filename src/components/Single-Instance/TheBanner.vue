@@ -1,7 +1,7 @@
 <script setup>
-import bouncingBtn from "./Ui/BouncingBtn.vue"
-import Icon from "./Ui/AppBrandIcon.vue"
-import CaretDown from "../assets/icons/caret-down.svg"
+import bouncingBtn from "../Base/AppBouncingBtn.vue"
+import Icon from "../Base/AppIcon.vue"
+import CaretDown from "../../assets/icons/caret-down.svg"
 
 defineProps({
     backgroundColor: String
@@ -19,7 +19,7 @@ defineProps({
 <style scoped>
 .banner {
     height: 4rem;
-    background: var(--c-yellow);
+    background: var(--c-bg-yellow);
     display: flex;
     align-items: center;
     justify-content: center;

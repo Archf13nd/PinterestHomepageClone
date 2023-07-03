@@ -1,19 +1,19 @@
 <script setup>
-import PinterestLogo from "../assets/logos/badgeRGB.png"
-import FacebookLogo from "../assets/logos/f_logo_RGB-White_58.png"
-import GoogleLogo from "../assets/logos/google.logo.png"
-import InfoCircle from "../assets/icons/info-circle.svg"
-import EyeFill from "../assets/icons/eye-fill.svg"
-import EyeSlashFill from "../assets/icons/eye-slash-fill.svg"
-import ExclamationTriangle from "../assets/icons/exclamation-triangle-fill.svg"
+import PinterestLogo from "../../assets/logos/badgeRGB.png"
+import FacebookLogo from "../../assets/logos/f_logo_RGB-White_58.png"
+import GoogleLogo from "../../assets/logos/google.logo.png"
+import InfoCircle from "../../assets/icons/info-circle.svg"
+import EyeFill from "../../assets/icons/eye-fill.svg"
+import EyeSlashFill from "../../assets/icons/eye-slash-fill.svg"
+import ExclamationTriangle from "../../assets/icons/exclamation-triangle-fill.svg"
 
-import BrandIcon from "./Ui/AppBrandIcon.vue"
+import AppIcon from "../Base/AppIcon.vue"
 </script>
 
 <template>
     <section class="signup">
         <div class="signup__logo mt-half">
-            <BrandIcon :file="PinterestLogo" :fontSize="'2.5em'" :alt="'Pinterest Brand Logo'"></BrandIcon>
+            <AppIcon :file="PinterestLogo" :fontSize="'2.5em'" :alt="'Pinterest Brand Logo'"></AppIcon>
         </div>
         <h2 class="signup__heading mt-half">Welcome to Pinterest</h2>
         <p class="signup__text">Find new ideas to try</p>

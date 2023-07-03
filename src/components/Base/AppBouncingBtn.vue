@@ -1,5 +1,5 @@
 <script setup>
-import Icon from "./AppBrandIcon.vue"
+import Icon from "./AppIcon.vue"
 import CaretDown from "../../assets/icons/caret-down.svg"
 
 defineProps({

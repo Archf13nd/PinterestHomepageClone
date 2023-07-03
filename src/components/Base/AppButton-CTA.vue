@@ -1,5 +1,5 @@
 <script setup>
-import AppIcon from "./AppBrandIcon.vue"
+import AppIcon from "./AppIcon.vue"
 
 defineProps({
     text: String,

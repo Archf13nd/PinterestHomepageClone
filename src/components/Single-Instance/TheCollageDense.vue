@@ -1,7 +1,7 @@
 <script setup>
-import Icon from "./Ui/AppBrandIcon.vue"
+import Icon from "../Base/AppIcon.vue"
 
-import SearchIcon from "../assets/icons/search.svg"
+import SearchIcon from "../../assets/icons/search.svg"
 </script>
 
 <template>

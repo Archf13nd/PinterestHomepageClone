@@ -1,6 +1,7 @@
 <script setup>
 defineProps({
-    color: String
+    color: String,
+    backgroundColor: String
 })
 </script>
 
@@ -12,7 +13,7 @@ defineProps({
         <p class="section-text__paragraph">
             <slot name="paragraph"></slot>
         </p>
-        <div class="section-text__cta" :style="{ 'background-color': color }">
+        <div class="section-text__cta" :style="{ 'background-color': color, 'color': backgroundColor }">
             <slot name="btn"></slot>
         </div>
     </div>
@@ -43,7 +44,6 @@ defineProps({
         background: #000;
         width: 6rem;
         border-radius: 2rem;
-        color: var(--c-yellow);
         font-weight: 700;
         display: flex;
         justify-content: center;

@@ -1,10 +1,10 @@
 <script setup>
-import ButtonCTA from "./Ui/Button-CTA.vue"
-import GalleryBackground from "./GalleryBackground.vue"
+import ButtonCTA from "../Base/AppButton-CTA.vue"
+import GalleryBackground from "./TheGalleryBackground.vue"
 
-import PinterestLogo from "../assets/logos/p-badge-white.svg"
-import FacebookLogo from "../assets/logos/f_logo_RGB-White_58.png"
-import GoogleLogo from "../assets/logos/google.logo.png"
+import PinterestLogo from "../../assets/logos/p-badge-white.svg"
+import FacebookLogo from "../../assets/logos/f_logo_RGB-White_58.png"
+import GoogleLogo from "../../assets/logos/google.logo.png"
 
 
 </script>

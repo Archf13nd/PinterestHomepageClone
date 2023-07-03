@@ -21,7 +21,12 @@
         justify-content: center;
         align-self: center;
     }
+}
 
-
+@media screen and (max-width: 40em) {
+    .screen {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
 }
 </style>

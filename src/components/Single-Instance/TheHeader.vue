@@ -1,5 +1,5 @@
 <script setup>
-import PinterestLogo from "../assets/logos/badgeRGB.png"
+import PinterestLogo from "../../assets/logos/badgeRGB.png"
 </script>
 
 <template>
@@ -81,7 +81,6 @@ import PinterestLogo from "../assets/logos/badgeRGB.png"
     height: auto;
   }
 
-  &__nav {}
 
   &__nav-items {
     display: flex;

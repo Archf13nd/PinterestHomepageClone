@@ -1,14 +1,15 @@
 <script setup>
-import AnimatedText from "./AnimatedText.vue"
-import BtnRow from "./Ui/BtnRow.vue"
-import Gallery from "./GalleryValleyAnimated_7x2.vue";
-import Banner from "./BannerCallDown.vue"
-import timer from "../assets/js/timer.js"
+import AnimatedText from "../Base/AppAnimatedText.vue"
+import BtnRow from "../Base/AppBtnRow.vue"
+import Gallery from "./TheGalleryValleyAnimated_7x2.vue";
+import Banner from "./TheBanner.vue"
+import AppHeader from "./TheHeader.vue"
+import timer from "../../assets/js/timer.js"
 </script>
 
 <template>
     <div class="hero">
-
+        <AppHeader></AppHeader>
         <div class="hero__heading">
             <h2>Get your next</h2>
             <AnimatedText :isTitleChanging="updateTitle">
