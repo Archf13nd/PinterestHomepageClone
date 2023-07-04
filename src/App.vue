@@ -15,7 +15,8 @@ export default {
       global: {
         scrollEventLister: null
       },
-      scrollEvent: null
+      scrollEvent: null,
+      resizeEvent: null
     }
   },
   methods: {

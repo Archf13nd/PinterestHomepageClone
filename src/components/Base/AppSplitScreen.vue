@@ -23,7 +23,7 @@
     }
 }
 
-@media screen and (max-width: 40em) {
+@media screen and (max-width:55em) {
     .screen {
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 1fr;

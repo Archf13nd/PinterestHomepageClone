@@ -2,20 +2,23 @@
 import AppHero from "../components/Single-Instance/TheHero.vue"
 import AppHeroMobile from "../components/Single-Instance/TheHeroMobile.vue"
 import signupForm from "../components/Single-Instance/TheSignUpForm.vue"
-import SplitScreen from "../components/Base/AppSplitScreen.vue"
 import CollageDense from "../components/Single-Instance/TheCollageDense.vue"
+import TheFooter from "../components/Single-Instance/TheFooter.vue"
+
+import SplitScreen from "../components/Base/AppSplitScreen.vue"
 import SectionText from "../components/Base/AppSectionText.vue"
+import AppBtnRound from "../components/Base/AppButtonRound.vue"
 
 
 </script>
 
 <template>
-  <div class="scroller" :style="{ 'height': pageHeight * (sections.total + 1) + 'px' }">
+  <div class="scroller" :style="{ 'height': pageHeight * 2 + 'px' }">
   </div>
   <main class="page">
     <div class="page__window" :style="{ 'top': getPosFromTop + 'px' }">
       <section class=" section section--1" id="hero" :style="{ 'height': pageHeight + 'px' }">
-        <AppHeroMobile v-if="isMobile"></AppHeroMobile>
+        <AppHeroMobile v-if="pageWidth < 900"></AppHeroMobile>
         <AppHero v-else></AppHero>
       </section>
       <section class="section section--2" id="ideas" :style="{ 'height': pageHeight + 'px' }">
@@ -40,7 +43,7 @@ import SectionText from "../components/Base/AppSectionText.vue"
         </SplitScreen>
       </section>
 
-      <section class="section section--3" :style="{ 'height': pageHeight + 'px' }">
+      <section class="section section--3" id="save-ideas" :style="{ 'height': pageHeight + 'px' }">
         <SplitScreen>
           <template v-slot:left>
             <SectionText :color="'#006b6c'" :background-color="'#dafff6'">
@@ -61,7 +64,7 @@ import SectionText from "../components/Base/AppSectionText.vue"
         </SplitScreen>
       </section>
 
-      <section class="section section--4" :style="{ 'height': pageHeight + 'px' }">
+      <section class="section section--4" id="shop" :style="{ 'height': pageHeight + 'px' }">
         <SplitScreen>
           <template v-slot:left>
             <CollageDense></CollageDense>
@@ -82,8 +85,18 @@ import SectionText from "../components/Base/AppSectionText.vue"
         </SplitScreen>
       </section>
 
-      <section class="section section--5" :style="{ 'height': pageHeight + 'px' }">
-        <signupForm></signupForm>
+      <section class="section section-5" id="signup" :style="{ 'height': pageHeight + 'px' }">
+        <AppBtnRound :background-color="'#9C0343'"></AppBtnRound>
+        <SplitScreen>
+          <template v-slot:left>
+            <h2 class="section-5__header">Sign up to get your ideas</h2>
+          </template>
+          <template v-slot:right>
+            <signupForm></signupForm>
+
+          </template>
+        </SplitScreen>
+        <TheFooter></TheFooter>
       </section>
 
 
@@ -94,12 +107,15 @@ import SectionText from "../components/Base/AppSectionText.vue"
 
 <script>
 export default {
-  props: ['scrollEvent'],
+  props: ['scrollEvent', 'resizeEvent'],
   data() {
     return {
       isMobile: false,
       scrollY: 0,
+      scrollerDivisionFactor: 3,
       pageHeight: null,
+      pageWidth: null,
+      readScroll: true,
       sections: {
         total: 5,
         0: 'hero',
@@ -112,44 +128,61 @@ export default {
     }
   },
   methods: {
-    handleScroll() {
-      console.log('scroll')
+    changeCurrentSection(num) {
+      if (this.currentSection <= 1 && num < 0) {
+        return
+      }
+      if (this.currentSection >= this.sections.total && num > 0) {
+        return
+      }
+      this.currentSection += num
+    },
+    allowScrollRead() {
+      setTimeout(() => {
+        this.readScroll = true
+        window.scrollTo(0, this.pageHeight / 2)
+
+      }, 1000);
     }
   },
   watch: {
     scrollEvent: function () {
-      console.log(window.scrollY, this.pageHeight)
-      if (window.scrollY > 0 && window.scrollY < this.pageHeight) {
-        this.scrollY = 0
 
-      } else if (window.scrollY > this.pageHeight * 1 && window.scrollY < this.pageHeight * 2) {
-        this.scrollY = this.pageHeight * 1
-        this.currentSection = 2
-
-      } else if (window.scrollY > this.pageHeight * 2 && window.scrollY < this.pageHeight * 3) {
-        this.scrollY = this.pageHeight * 2
-        this.currentSection = 3
-
-      } else if (window.scrollY > this.pageHeight * 3 && window.scrollY < this.pageHeight * 4) {
-        this.scrollY = this.pageHeight * 3
-        this.currentSection = 4
-
-      } else if (window.scrollY > this.pageHeight * 4 && window.scrollY < this.pageHeight * 5) {
-        this.scrollY = this.pageHeight * 4
-        this.currentSection = 5
+      if (!this.readScroll) {
+        return
       }
+      const sensitivity = 100
+      if (window.scrollY < (this.pageHeight / 2) - sensitivity) {
+        this.readScroll = false
+        this.changeCurrentSection(-1)
+        this.allowScrollRead()
+
+      } else if (window.scrollY > (this.pageHeight / 2) + sensitivity) {
+        this.readScroll = false
+        this.changeCurrentSection(1)
+        this.allowScrollRead()
+
+
+      }
+
+
+
+
       this.$router.push('/#' + this.sections[this.currentSection - 1])
-      console.log(this.scrollY)
     }
   },
   computed: {
     getPosFromTop() {
-      return this.scrollY * -1
+      return this.pageHeight * (this.currentSection - 1) * -1
     }
   },
   created() {
     this.pageHeight = document.documentElement.clientHeight
-
+    this.pageWidth = document.documentElement.clientWidth
+  },
+  mounted() {
+    window.scrollTo(0, this.pageHeight / 2)
+    this.pageY = window.scrollY
   }
 }
 </script>
@@ -167,6 +200,11 @@ export default {
   }
 }
 
+.signup {
+  /* background: #000; */
+  flex-shrink: 0;
+}
+
 .section {
   position: relative;
 
@@ -181,9 +219,30 @@ export default {
   &--4 {
     background: var(--c-bg-pink);
   }
+}
 
-  &--5 {
-    background: #000;
+.section-5 {
+  background: #000;
+
+  &__header {
+    color: var(--c-white);
+    font-size: 4.375rem;
+    font-weight: 600;
+    max-width: 10ch;
+    line-height: 1.4;
   }
+
+  & .btn-round-caret {
+    position: absolute;
+    left: 49%;
+    top: 5rem;
+    transform: rotateZ(180deg);
+  }
+}
+
+.footer {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
 }
 </style>

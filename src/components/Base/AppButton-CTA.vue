@@ -3,16 +3,13 @@ import AppIcon from "./AppIcon.vue"
 
 defineProps({
     text: String,
-    file: URL,
-    backgroundColor: {
-        type: String,
-        default: 'none'
-    }
+    file: String,
+
 })
 </script>
 
 <template>
-    <button class="btn-cta" :style="{ 'background-color': BackgroundColor }">
+    <button class="btn-cta">
         <AppIcon v-if="file" :file="file" :fontSize="'1.5rem'" :alt="''"></AppIcon>
         <div class="btn-cta__text">
             {{ text }}

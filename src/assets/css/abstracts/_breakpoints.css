@@ -1,4 +1,1 @@
-:root {
-  --bp-tablet-portrait: 37.5em;
-  --bp-tablet-landscape: 48em;
-}
+@custom-media --viewport-medium (max-width: 1000px);

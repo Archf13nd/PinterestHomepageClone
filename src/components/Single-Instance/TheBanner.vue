@@ -1,5 +1,6 @@
 <script setup>
-import bouncingBtn from "../Base/AppBouncingBtn.vue"
+import AppButtonRound from "../Base/AppButtonRound.vue"
+import AppBouncingAnimation from "../BaseAnimated/AppBouncingAnimation.vue"
 import Icon from "../Base/AppIcon.vue"
 import CaretDown from "../../assets/icons/caret-down.svg"
 
@@ -10,7 +11,9 @@ defineProps({
 
 <template>
     <div class="banner">
-        <bouncingBtn :backgroundColor="backgroundColor"></bouncingBtn>
+        <AppBouncingAnimation>
+            <AppButtonRound :backgroundColor="backgroundColor"></AppButtonRound>
+        </AppBouncingAnimation>
         <button class="banner__btn">Here's how it works <Icon :file="CaretDown"></Icon></button>
     </div>
 </template> 
@@ -34,7 +37,7 @@ defineProps({
     }
 }
 
-.bouncing-button {
+.animation-bouncing {
     position: absolute;
     top: -120%
 }

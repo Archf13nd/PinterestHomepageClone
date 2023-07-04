@@ -8,33 +8,20 @@ defineProps({
 </script>
 
 <template>
-    <button :style="{ 'background-color': backgroundColor || '#fff' }" class="bouncing-button">
+    <button :style="{ 'background-color': backgroundColor || '#fff' }" class="btn-round-caret">
         <Icon :file="CaretDown" :fontSize="'2em'"></Icon>
     </button>
 </template>
 
 <style scoped>
-.bouncing-button {
-    height: 3.5rem;
-    width: 3.5rem;
+.btn-round-caret {
+    height: 3rem;
+    width: 3rem;
     border: none;
     border-radius: 50%;
     color: var(--c-white);
-    animation: bouncing infinite alternate 1.2s;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #fff;
-}
-
-@keyframes bouncing {
-    0% {
-        transform: translateY(0);
-    }
-
-    100% {
-        transform: translateY(-2rem);
-
-    }
 }
 </style>

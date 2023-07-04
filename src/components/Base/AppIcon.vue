@@ -34,8 +34,8 @@ defineProps({
     margin: 3px;
 
     & img {
-        width: 100%;
         height: auto;
+        width: 100%;
     }
 }
 </style>

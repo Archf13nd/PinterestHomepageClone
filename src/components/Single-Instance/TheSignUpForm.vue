@@ -26,7 +26,7 @@ import AppIcon from "../Base/AppIcon.vue"
                     <input type="email" name="email" @blur="validateEmail" v-model="form.email" placeholder="Email">
                     <div v-if="form.errors.email && form.email" class="signup__error-text">
                         <div class="flex">
-                            <BrandIcon :file="ExclamationTriangle" :fontSize="'1rem'"></BrandIcon>{{ form.errors.email }}
+                            <AppIcon :file="ExclamationTriangle" :fontSize="'1rem'"></AppIcon>{{ form.errors.email }}
                         </div>
                     </div>
                 </div>
@@ -35,22 +35,22 @@ import AppIcon from "../Base/AppIcon.vue"
                     <input :type="passwordType" name="password" @blur="validatePassword" v-model="form.password"
                         placeholder="Create a password">
                     <div v-if="passwordType === 'password'" @click="passwordType = 'text'" class="signup__show-password">
-                        <BrandIcon :file="EyeFill" :fontSize="'1em'"></BrandIcon>
+                        <AppIcon :file="EyeFill" :fontSize="'1em'"></AppIcon>
                     </div>
                     <div v-if="passwordType === 'text'" @click="passwordType = 'password'" class="signup__show-password">
-                        <BrandIcon :file="EyeSlashFill" :fontSize="'1em'"></BrandIcon>
+                        <AppIcon :file="EyeSlashFill" :fontSize="'1em'"></AppIcon>
                     </div>
                     <div v-if="form.errors.password && form.password" class="signup__error-text">
                         <div class="flex">
-                            <BrandIcon :file="ExclamationTriangle" :fontSize="'1rem'"></BrandIcon>{{ form.errors.password }}
+                            <AppIcon :file="ExclamationTriangle" :fontSize="'1rem'"></AppIcon>{{ form.errors.password }}
                         </div>
                     </div>
 
                 </div>
                 <div class="signup__input mt-half">
-                    <label for="birthdate">Birthdate <BrandIcon :file="InfoCircle" @mouseleave="showBirthdateInfo = false"
+                    <label for="birthdate">Birthdate <AppIcon :file="InfoCircle" @mouseleave="showBirthdateInfo = false"
                             @mouseover="showBirthdateInfo = true" :fontSize="'1.2em'" :alt="'Info icon'">
-                        </BrandIcon></label>
+                        </AppIcon></label>
                     <div v-if="showBirthdateInfo" class="signup__info-box">We collect this info to help provide a better
                         experience for the younger
                         people in
@@ -59,7 +59,7 @@ import AppIcon from "../Base/AppIcon.vue"
                     <input type="date" v-model="form.birthdate" placeholder="dd/mm/yyyy">
                     <div v-if="form.errors.birthdate" class="signup__error-text">
                         <div class="flex">
-                            <BrandIcon :file="ExclamationTriangle" :fontSize="'1rem'"></BrandIcon>
+                            <AppIcon :file="ExclamationTriangle" :fontSize="'1rem'"></AppIcon>
                             {{ form.errors.birthdate }}
                         </div>
                     </div>
@@ -68,12 +68,12 @@ import AppIcon from "../Base/AppIcon.vue"
             </form>
             <div class="signup__divider">OR</div>
             <button class="signup__btn signup__btn--facebook">
-                <BrandIcon :file="FacebookLogo" :fontSize="'2em'" :alt="'Facebook Brand Logo'"></BrandIcon>
+                <AppIcon :file="FacebookLogo" :fontSize="'2em'" :alt="'Facebook Brand Logo'"></AppIcon>
                 <div class="signup__btn__text">Continue with
                     Facebook</div>
             </button>
             <button class="signup__btn signup__btn--google mt-third">
-                <BrandIcon :file="GoogleLogo" :fontSize="'2em'" :alt="'Google Brand Logo'"></BrandIcon>
+                <AppIcon :file="GoogleLogo" :fontSize="'2em'" :alt="'Google Brand Logo'"></AppIcon>
                 <div class="signup__btn__text">Continue with Google</div>
             </button>
             <p class="signup__footer-text mt-half">By continuing, you agree to Pinterest's <a href="#">Terms of Service</a>
@@ -167,11 +167,11 @@ export default {
 
 <style scoped>
 .signup {
-    /* DEV */
-    top: 10rem;
-    left: 50rem;
+
     color: black;
     max-width: 30.25rem;
+    width: 100%;
+    flex-shrink: 0;
     /* padding: 0 6.75rem; */
     padding-top: 1px;
     background: #ffffff;
