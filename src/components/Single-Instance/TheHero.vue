@@ -22,7 +22,7 @@ import timer from "../../assets/js/timer.js"
             <div class="overlay"></div>
             <Gallery :isGalleryChanging="updateGallery"></Gallery>
         </div>
-        <Banner :backgroundColor="titles[currentTitle].color"></Banner>
+        <Banner @bannerClicked="handleInteraction" :backgroundColor="titles[currentTitle].color"></Banner>
     </div>
 </template>
 
@@ -81,6 +81,9 @@ export default {
                 this.currentTimings['timing-1'] = 1
                 this.currentTimings['timing-2'] = 1
             }, 100);
+        },
+        handleInteraction() {
+            this.$emit('bannerClicked')
         }
     },
     watch: {
@@ -127,10 +130,6 @@ export default {
 
 <style scoped>
 .hero {
-    height: 100vh;
-    /* pointer-events: none; */
-
-
     &__heading {
         font-size: 2.5rem;
         position: absolute;
@@ -140,6 +139,7 @@ export default {
         transform: translate(-50%, -50%);
         text-align: center;
         font-weight: 600;
+        width: 100%;
 
         & h2 {
             font-weight: inherit;
@@ -163,7 +163,7 @@ export default {
     display: flex;
     justify-content: center;
     position: absolute;
-    padding-top: 14rem;
+    bottom: 0;
     pointer-events: none;
 }
 

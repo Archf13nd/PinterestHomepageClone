@@ -3,6 +3,8 @@ import AppHero from "../components/Single-Instance/TheHero.vue"
 import AppHeroMobile from "../components/Single-Instance/TheHeroMobile.vue"
 import signupForm from "../components/Single-Instance/TheSignUpForm.vue"
 import CollageDense from "../components/Single-Instance/TheCollageDense.vue"
+import TheCollageSparse from "../components/Single-Instance/TheCollageSparse.vue"
+import TheBackgroundWithMobile from "../components/Single-Instance/TheBackgroundWithMobile.vue"
 import TheFooter from "../components/Single-Instance/TheFooter.vue"
 
 import SplitScreen from "../components/Base/AppSplitScreen.vue"
@@ -13,21 +15,23 @@ import AppBtnRound from "../components/Base/AppButtonRound.vue"
 </script>
 
 <template>
+  <!-- Used in scroll functions. Height has no max but going too small will break scroll functions. -->
   <div class="scroller" :style="{ 'height': pageHeight * 2 + 'px' }">
   </div>
   <main class="page">
     <div class="page__window" :style="{ 'top': getPosFromTop + 'px' }">
-      <section class=" section section--1" id="hero" :style="{ 'height': pageHeight + 'px' }">
+      <section class=" section section-1" id="hero" :style="{ 'height': pageHeight + 'px' }">
         <AppHeroMobile v-if="pageWidth < 900"></AppHeroMobile>
-        <AppHero v-else></AppHero>
+        <AppHero v-else @bannerClicked="changeCurrentSection(1)"></AppHero>
       </section>
-      <section class="section section--2" id="ideas" :style="{ 'height': pageHeight + 'px' }">
-        <SplitScreen>
+
+      <section class="section section-2" id="ideas" :style="{ 'height': pageHeight + 'px' }">
+        <SplitScreen :scale="maxWidth('mobile') ? .5 : 1">
           <template v-slot:left>
-            <CollageDense></CollageDense>
+            <CollageDense class="section-2__collage"></CollageDense>
           </template>
           <template v-slot:right>
-            <SectionText :color="'#c31952'" :background-color="'#fffd92'">
+            <SectionText class="section-2__text" :color="'#c31952'" :background-color="'#fffd92'">
               <template v-slot:heading>
                 Search for an idea
               </template>
@@ -43,10 +47,11 @@ import AppBtnRound from "../components/Base/AppButtonRound.vue"
         </SplitScreen>
       </section>
 
-      <section class="section section--3" id="save-ideas" :style="{ 'height': pageHeight + 'px' }">
-        <SplitScreen>
+      <section class="section section-3" id="save-ideas" :style="{ 'height': pageHeight + 'px' }">
+        <SplitScreen class="section-3__splitscreen" :scale="maxWidth('mobile') ? .55 : 1"
+          :order="maxWidth('tablet-portrait') ? 'reverse' : 'normal'" :justifyContentRightSide="'left'">
           <template v-slot:left>
-            <SectionText :color="'#006b6c'" :background-color="'#dafff6'">
+            <SectionText class="section-3__text" :color="'#006b6c'" :background-color="'#dafff6'">
               <template v-slot:heading>
                 Save ideas you like
               </template>
@@ -59,18 +64,18 @@ import AppBtnRound from "../components/Base/AppButtonRound.vue"
             </SectionText>
           </template>
           <template v-slot:right>
-            <CollageDense></CollageDense>
+            <TheCollageSparse class="section-3__collage"></TheCollageSparse>
           </template>
         </SplitScreen>
       </section>
 
-      <section class="section section--4" id="shop" :style="{ 'height': pageHeight + 'px' }">
-        <SplitScreen>
+      <section class="section section-4" id="shop" :style="{ 'height': pageHeight + 'px' }">
+        <SplitScreen :scale="maxWidth('mobile') ? .7 : 1" :ratio="maxWidth('mobile') ? .6 : .5">
           <template v-slot:left>
-            <CollageDense></CollageDense>
+            <TheBackgroundWithMobile></TheBackgroundWithMobile>
           </template>
           <template v-slot:right>
-            <SectionText :color="'#c32f00'" :background-color="'#ffe2eb'">
+            <SectionText class="section-3__text" :color="'#c32f00'" :background-color="'#ffe2eb'">
               <template v-slot:heading>
                 See it, make it, try it, do it
               </template>
@@ -85,15 +90,20 @@ import AppBtnRound from "../components/Base/AppButtonRound.vue"
         </SplitScreen>
       </section>
 
-      <section class="section section-5" id="signup" :style="{ 'height': pageHeight + 'px' }">
-        <AppBtnRound :background-color="'#9C0343'"></AppBtnRound>
+
+      <section v-if="maxWidth('mobile')" class="section section-5" id="signup">
+        <AppHeroMobile></AppHeroMobile>
+      </section>
+      <section v-if="!maxWidth('mobile')" class="section section-5 section-5--desktop" id="signup"
+        :style="{ 'height': pageHeight + 'px' }">
+
+        <AppBtnRound @click="changeCurrentSection(-1)" :background-color="'#9C0343'"></AppBtnRound>
         <SplitScreen>
           <template v-slot:left>
             <h2 class="section-5__header">Sign up to get your ideas</h2>
           </template>
           <template v-slot:right>
-            <signupForm></signupForm>
-
+            <signupForm class="section-5__signup-form"></signupForm>
           </template>
         </SplitScreen>
         <TheFooter></TheFooter>
@@ -129,6 +139,7 @@ export default {
   },
   methods: {
     changeCurrentSection(num) {
+
       if (this.currentSection <= 1 && num < 0) {
         return
       }
@@ -208,21 +219,54 @@ export default {
 .section {
   position: relative;
 
-  &--2 {
-    background: var(--c-bg-yellow);
+
+}
+
+.section-2 {
+  background: var(--c-bg-yellow);
+
+  &__collage {
+    margin: 0 auto;
+    align-self: center;
   }
 
-  &--3 {
-    background: var(--c-bg-cyan);
-  }
-
-  &--4 {
-    background: var(--c-bg-pink);
+  &__text {
+    padding-bottom: 6rem;
+    margin: 0 auto;
+    align-self: center;
   }
 }
 
+.section-3 {
+  background: var(--c-bg-cyan);
+
+  &__splitscreen {
+    @media (max-width: 600px) {
+      flex-direction: column-reverse;
+    }
+  }
+
+  &__collage {
+    margin: 0 auto;
+    align-self: center;
+  }
+
+  &__text {
+    padding-bottom: 6rem;
+    margin: 0 auto;
+    align-self: center;
+  }
+}
+
+.section-4 {
+  background: var(--c-bg-pink);
+}
+
 .section-5 {
-  background: #000;
+
+  &--desktop {
+    background: #000000d0;
+  }
 
   &__header {
     color: var(--c-white);
@@ -230,6 +274,13 @@ export default {
     font-weight: 600;
     max-width: 10ch;
     line-height: 1.4;
+    align-self: center;
+    margin: 0 auto;
+  }
+
+  &__signup-form {
+    align-self: center;
+    margin: 0 auto;
   }
 
   & .btn-round-caret {

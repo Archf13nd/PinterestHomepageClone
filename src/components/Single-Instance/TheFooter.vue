@@ -45,6 +45,8 @@
 .footer {
     height: 3rem;
     background: var(--c-white);
+    font-size: .75rem;
+
 
     & nav {
         height: 100%;
@@ -71,6 +73,8 @@
 
 @media (max-width: 55em) {
     .footer {
+
+
         &__links {
             & li {
                 &:not(:last-child) {

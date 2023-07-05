@@ -7,19 +7,19 @@ defineProps({
 
 <template>
     <div class="gallery">
-        <div class="gallery__overlay"></div>
+        <div class="gallery__wrapper">
+            <div class="gallery__overlay"></div>
+            <div class="gallery__1x2" :style="{ 'animation-delay': calcAnimationDelay(i) }"
+                :class="[`gallery__1x2--${i}`, { 'render-1x2': isGalleryChanging }]" v-for="i in 7" :key="i">
+                <div class="gallery__bg-img" :class="`gallery__bg-img--${i}`" :style="{
+                    backgroundImage: `url(${imageURLs[i - 1]})`
 
-
-        <div class="gallery__1x2" :style="{ 'animation-delay': calcAnimationDelay(i) }"
-            :class="[`gallery__1x2--${i}`, { 'render-1x2': isGalleryChanging }]" v-for="i in 7" :key="i">
-            <div class="gallery__bg-img" :class="`gallery__bg-img--${i}`" :style="{
-                backgroundImage: `url(${imageURLs[i - 1]})`
-
-            }">
+                }">
+                </div>
+                <div v-if="[1, 2, 6, 7].includes(i)" class="gallery__bg-img" :style="{
+                    backgroundImage: `url(${imageURLs[i - 1]})`
+                }"></div>
             </div>
-            <div v-if="[1, 2, 6, 7].includes(i)" class="gallery__bg-img" :style="{
-                backgroundImage: `url(${imageURLs[i - 1]})`
-            }"></div>
 
         </div>
     </div>
@@ -65,21 +65,27 @@ export default {
 }
 
 .gallery {
-
-    height: 43.75rem;
-    justify-content: flex-end;
-    display: flex;
-    align-items: flex-end;
     position: relative;
     overflow: hidden;
+    width: 100%;
+    padding-top: 10rem;
+
+    &__wrapper {
+        justify-content: center;
+        display: flex;
+        align-items: flex-end;
+        width: 100%;
+        height: 100%;
+    }
 
     &__bg-img {
         background-size: cover;
         background-repeat: no-repeat;
         width: 14.75rem;
-        height: 50%;
+        height: 21.875rem;
         margin: .5rem;
         border-radius: 1rem;
+        flex-shrink: 0;
     }
 
     &__1x2 {

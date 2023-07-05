@@ -11,13 +11,22 @@ defineProps({
 
 <template>
     <div class="banner">
-        <AppBouncingAnimation>
+        <AppBouncingAnimation @click="handleInteraction">
             <AppButtonRound :backgroundColor="backgroundColor"></AppButtonRound>
         </AppBouncingAnimation>
-        <button class="banner__btn">Here's how it works <Icon :file="CaretDown"></Icon></button>
+        <button @click="handleInteraction" class="banner__btn">Here's how it works <Icon :file="CaretDown"></Icon></button>
     </div>
 </template> 
 
+<script>
+export default {
+    methods: {
+        handleInteraction() {
+            this.$emit('bannerClicked')
+        }
+    }
+}
+</script>
 
 <style scoped>
 .banner {

@@ -20,7 +20,6 @@ import SearchIcon from "../../assets/icons/search.svg"
 .collage-dense {
     /* DEV */
     border: 2px solid green;
-    font-size: 1rem;
     height: 40em;
     width: 40em;
     display: flex;
@@ -47,7 +46,7 @@ import SearchIcon from "../../assets/icons/search.svg"
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: 2rem;
+        font-size: 2em;
         font-weight: 600;
     }
 

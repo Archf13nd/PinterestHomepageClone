@@ -12,10 +12,10 @@ import AppIcon from "../Base/AppIcon.vue"
 
 <template>
     <section class="signup">
-        <div class="signup__logo mt-half">
-            <AppIcon :file="PinterestLogo" :fontSize="'2.5em'" :alt="'Pinterest Brand Logo'"></AppIcon>
+        <div class="signup__logo mt-1">
+            <AppIcon :file="PinterestLogo" :fontSize="'2em'" :alt="'Pinterest Brand Logo'"></AppIcon>
         </div>
-        <h2 class="signup__heading mt-half">Welcome to Pinterest</h2>
+        <h2 class="signup__heading mt-quarter">Welcome to Pinterest</h2>
         <p class="signup__text">Find new ideas to try</p>
 
         <div class="signup__wrapper">
@@ -26,11 +26,11 @@ import AppIcon from "../Base/AppIcon.vue"
                     <input type="email" name="email" @blur="validateEmail" v-model="form.email" placeholder="Email">
                     <div v-if="form.errors.email && form.email" class="signup__error-text">
                         <div class="flex">
-                            <AppIcon :file="ExclamationTriangle" :fontSize="'1rem'"></AppIcon>{{ form.errors.email }}
+                            <AppIcon :file="ExclamationTriangle" :fontSize="'1em'"></AppIcon>{{ form.errors.email }}
                         </div>
                     </div>
                 </div>
-                <div class="signup__input mt-half">
+                <div class="signup__input ">
                     <label for="password">Password</label>
                     <input :type="passwordType" name="password" @blur="validatePassword" v-model="form.password"
                         placeholder="Create a password">
@@ -40,14 +40,14 @@ import AppIcon from "../Base/AppIcon.vue"
                     <div v-if="passwordType === 'text'" @click="passwordType = 'password'" class="signup__show-password">
                         <AppIcon :file="EyeSlashFill" :fontSize="'1em'"></AppIcon>
                     </div>
-                    <div v-if="form.errors.password && form.password" class="signup__error-text">
+                    <div v-if="form.errors.password && form.password && !form.errors.email" class="signup__error-text">
                         <div class="flex">
-                            <AppIcon :file="ExclamationTriangle" :fontSize="'1rem'"></AppIcon>{{ form.errors.password }}
+                            <AppIcon :file="ExclamationTriangle" :fontSize="'1em'"></AppIcon>{{ form.errors.password }}
                         </div>
                     </div>
 
                 </div>
-                <div class="signup__input mt-half">
+                <div class="signup__input">
                     <label for="birthdate">Birthdate <AppIcon :file="InfoCircle" @mouseleave="showBirthdateInfo = false"
                             @mouseover="showBirthdateInfo = true" :fontSize="'1.2em'" :alt="'Info icon'">
                         </AppIcon></label>
@@ -57,9 +57,10 @@ import AppIcon from "../Base/AppIcon.vue"
                         our community. We'll also use your birthdate to help personalize your recommendations and ads. It
                         will not be displayed publically</div>
                     <input type="date" v-model="form.birthdate" placeholder="dd/mm/yyyy">
-                    <div v-if="form.errors.birthdate" class="signup__error-text">
+                    <div v-if="form.errors.birthdate && !form.errors.email && !form.errors.password"
+                        class="signup__error-text">
                         <div class="flex">
-                            <AppIcon :file="ExclamationTriangle" :fontSize="'1rem'"></AppIcon>
+                            <AppIcon :file="ExclamationTriangle" :fontSize="'1em'"></AppIcon>
                             {{ form.errors.birthdate }}
                         </div>
                     </div>
@@ -95,6 +96,7 @@ export default {
             showBirthdateInfo: false,
             passwordType: 'text',
             form: {
+                currentError: '',
                 errors: {
                     email: '',
                     password: '',
@@ -167,20 +169,25 @@ export default {
 
 <style scoped>
 .signup {
-
+    font-size: 1rem;
     color: black;
     max-width: 30.25rem;
     width: 100%;
-    flex-shrink: 0;
-    /* padding: 0 6.75rem; */
+    /* max-height: 42.75rem; */
+    flex-shrink: 1;
+    margin-bottom: 4rem;
+    /* padding: 0 6.75em; */
     padding-top: 1px;
     background: #ffffff;
-    border-radius: 2rem;
+    border-radius: 2em;
     position: relative;
+    display: flex;
+    flex-direction: column;
     overflow: hidden;
+    /* overflow-y: scroll; */
 
     &__wrapper {
-        max-width: 16.75rem;
+        max-width: 16rem;
         margin: 0 auto;
     }
 
@@ -192,7 +199,7 @@ export default {
 
     &__heading {
         /* DEV */
-        font-size: 2rem;
+        font-size: 1.8em;
         font-weight: 600;
 
         text-align: center;
@@ -205,21 +212,21 @@ export default {
     &__info-box {
         font-size: .75rem;
         position: absolute;
-        width: 12rem;
+        width: 12em;
         background: var(--c-black);
         color: var(--c-white);
-        border-radius: .5rem;
-        padding: .5rem;
+        border-radius: .5em;
+        padding: .5em;
         left: 40%;
         top: 35%;
     }
 
     &__show-password {
         position: absolute;
-        left: 87%;
-        top: 2.1rem;
-        width: 1.3rem;
-        height: 1.3rem;
+        right: 0;
+        top: 1.5rem;
+        width: 3em;
+        height: 3rem;
         border-radius: 50%;
         background: #6e6e6e00;
         display: flex;
@@ -239,22 +246,22 @@ export default {
         & label {
             /* DEV */
             font-size: .75rem;
+            line-height: 2;
 
-
-            margin-left: .5rem;
+            margin-left: .5em;
             display: flex;
             /* align-items: center; */
 
             & span {
-                margin-left: .2rem;
+                margin-left: .2em;
             }
         }
 
         & input {
             height: 3rem;
-            border-radius: 1rem;
-            border: 2px solid var(--color-border);
-            padding: 0 1rem;
+            border-radius: 1em;
+            border: 1px solid var(--color-border);
+            padding: 1em 1em;
 
             &:focus {
                 outline: none;
@@ -266,7 +273,7 @@ export default {
     &__error-text {
         /* TODO */
         font-size: .75rem;
-        margin-left: .5rem;
+        margin-left: .5em;
         color: var(--color-danger);
         font-weight: 600;
     }
@@ -274,13 +281,14 @@ export default {
     &__btn {
         height: 2.5rem;
         width: 100%;
-        border-radius: 9rem;
+        border-radius: 9em;
         cursor: pointer;
         border: none;
         display: flex;
         align-items: center;
         text-align: center;
         justify-content: center;
+        font-size: 1rem;
 
         &__text {
             width: 100%;
@@ -300,10 +308,13 @@ export default {
             font-weight: 700;
             font-family: Helvetica, Arial, sans-serif;
             font-size: 1rem;
+
         }
 
         &--google {
             font-family: "Google Sans", arial, sans-serif;
+            background: #fff;
+            border: 1px solid #e4e4e4;
 
             & p {
                 width: 100%;
@@ -319,10 +330,10 @@ export default {
 
     &__footer-text {
         /* DEV */
-        font-size: .75rem;
+        font-size: .75em;
         text-align: center;
         color: var(--c-text-light-fade);
-        margin-bottom: 4.5rem;
+        margin-bottom: 2em;
 
 
         & a {
@@ -333,31 +344,42 @@ export default {
     }
 
     &__business-link {
-        padding: 1rem;
+        padding: 1em;
         width: 100%;
-        left: 0;
-        bottom: 0;
         text-align: center;
         color: var(--c-black);
         font-weight: 600;
         text-decoration: none;
         display: block;
         background: #bbbbbb;
-        position: absolute;
     }
 }
 
 /* margins */
 
 .mt-third {
-    margin-top: .625rem;
+    margin-top: .625em;
 }
 
 .mt-half {
-    margin-top: .938rem;
+    margin-top: .938em;
 }
 
 .mt-1 {
-    margin-top: 1.875rem;
+    margin-top: 1.875em;
+}
+
+@media (max-width: 1200px) {
+    .mt-third {
+        margin-top: .5em;
+    }
+
+    .mt-half {
+        margin-top: .5em;
+    }
+
+    .mt-1 {
+        margin-top: .9em;
+    }
 }
 </style>

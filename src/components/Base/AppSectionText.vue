@@ -28,16 +28,23 @@ defineProps({
     flex-direction: column;
 
     &__heading {
-        font-size: 4rem;
+        font-size: 3.75rem;
         font-weight: 700;
+        line-height: 1;
+
+        @media (max-width: 600px) {
+            font-size: 1.75rem;
+        }
     }
 
     &__paragraph {
         font-size: 1.5rem;
         text-align: center;
-        max-width: 65%;
+        max-width: 29ch;
         line-height: 1.3;
+        margin-top: 1em;
     }
+
 
     &__cta {
         padding: .8rem;
@@ -48,7 +55,16 @@ defineProps({
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-top: 1.8rem;
+        margin-top: 1.5em;
+        font-size: 1rem;
+    }
+
+    /* Mobile */
+    @media (max-width: 900px) {
+
+        &__paragraph {
+            font-size: 1rem;
+        }
     }
 }
 </style>
