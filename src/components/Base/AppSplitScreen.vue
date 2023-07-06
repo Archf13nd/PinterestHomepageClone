@@ -1,10 +1,5 @@
 <script setup>
 defineProps({
-    order: null,
-    scale: {
-        type: Number,
-        default: 1
-    },
     ratio: {
         type: Number,
         default: 1
@@ -13,7 +8,7 @@ defineProps({
 </script>
 
 <template>
-    <div class="screen" :style="{ 'font-size': scale + 'rem' }">
+    <div class="screen">
         <div class="screen__left" :style="{ 'flex-basis': `${(ratio) * 100}%` }">
             <slot name="left"></slot>
         </div>
@@ -23,24 +18,23 @@ defineProps({
     </div>
 </template>
 
+<script>
+export default {
+
+}
+</script>
+
 <style scoped>
 .screen {
     display: flex;
     height: 100%;
     width: 100%;
-    font-size: 1rem;
 
     &__left,
     &__right {
         width: 100%;
         height: 100%;
         display: flex;
-    }
-}
-
-@media screen and (max-width:55em) {
-    .screen {
-        flex-direction: column;
     }
 }
 </style>

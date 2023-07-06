@@ -32,7 +32,7 @@ defineProps({
         font-weight: 700;
         line-height: 1;
 
-        @media (max-width: 600px) {
+        @media (max-width: $bp-tablet-portrait) {
             font-size: 1.75rem;
         }
     }

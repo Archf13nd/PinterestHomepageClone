@@ -26,7 +26,7 @@ import AppBtnRound from "../components/Base/AppButtonRound.vue"
       </section>
 
       <section class="section section-2" id="ideas" :style="{ 'height': pageHeight + 'px' }">
-        <SplitScreen :scale="maxWidth('mobile') ? .5 : 1">
+        <SplitScreen class="section-2__splitscreen">
           <template v-slot:left>
             <CollageDense class="section-2__collage"></CollageDense>
           </template>
@@ -48,8 +48,7 @@ import AppBtnRound from "../components/Base/AppButtonRound.vue"
       </section>
 
       <section class="section section-3" id="save-ideas" :style="{ 'height': pageHeight + 'px' }">
-        <SplitScreen class="section-3__splitscreen" :scale="maxWidth('mobile') ? .55 : 1"
-          :order="maxWidth('tablet-portrait') ? 'reverse' : 'normal'" :justifyContentRightSide="'left'">
+        <SplitScreen class="section-3__splitscreen">
           <template v-slot:left>
             <SectionText class="section-3__text" :color="'#006b6c'" :background-color="'#dafff6'">
               <template v-slot:heading>
@@ -70,7 +69,7 @@ import AppBtnRound from "../components/Base/AppButtonRound.vue"
       </section>
 
       <section class="section section-4" id="shop" :style="{ 'height': pageHeight + 'px' }">
-        <SplitScreen :scale="maxWidth('mobile') ? .7 : 1" :ratio="maxWidth('mobile') ? .6 : .5">
+        <SplitScreen :scale="maxWidth('bp-tablet-portrait') ? .7 : 1" :ratio="maxWidth('bp-tablet-portrait') ? .6 : .5">
           <template v-slot:left>
             <TheBackgroundWithMobile></TheBackgroundWithMobile>
           </template>
@@ -91,10 +90,10 @@ import AppBtnRound from "../components/Base/AppButtonRound.vue"
       </section>
 
 
-      <section v-if="maxWidth('mobile')" class="section section-5" id="signup">
+      <section v-if="maxWidth('bp-tablet-portrait')" class="section section-5" id="signup">
         <AppHeroMobile></AppHeroMobile>
       </section>
-      <section v-if="!maxWidth('mobile')" class="section section-5 section-5--desktop" id="signup"
+      <section v-if="!maxWidth('bp-tablet-portrait')" class="section section-5 section-5--desktop" id="signup"
         :style="{ 'height': pageHeight + 'px' }">
 
         <AppBtnRound @click="changeCurrentSection(-1)" :background-color="'#9C0343'"></AppBtnRound>
@@ -198,7 +197,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .page {
   position: fixed;
   top: 0;
@@ -218,12 +217,23 @@ export default {
 
 .section {
   position: relative;
-
+  overflow: hidden;
 
 }
 
+
 .section-2 {
   background: var(--c-bg-yellow);
+
+  @media (max-width: $bp-tablet-portrait) {
+    font-size: .5rem;
+  }
+
+  &__splitscreen {
+    @media (max-width: $bp-tablet-portrait) {
+      flex-direction: column;
+    }
+  }
 
   &__collage {
     margin: 0 auto;
@@ -240,8 +250,12 @@ export default {
 .section-3 {
   background: var(--c-bg-cyan);
 
+  @media (max-width: $bp-tablet-portrait) {
+    font-size: .5rem;
+  }
+
   &__splitscreen {
-    @media (max-width: 600px) {
+    @media (max-width: $bp-tablet-portrait) {
       flex-direction: column-reverse;
     }
   }
@@ -252,7 +266,7 @@ export default {
   }
 
   &__text {
-    padding-bottom: 6rem;
+    /* padding-bottom: 6rem; */
     margin: 0 auto;
     align-self: center;
   }
@@ -260,9 +274,17 @@ export default {
 
 .section-4 {
   background: var(--c-bg-pink);
+
+  @media (max-width: $bp-tablet-portrait) {
+    font-size: .5rem;
+  }
 }
 
 .section-5 {
+
+  @media (max-width: $bp-tablet-portrait) {
+    font-size: .5rem;
+  }
 
   &--desktop {
     background: #000000d0;

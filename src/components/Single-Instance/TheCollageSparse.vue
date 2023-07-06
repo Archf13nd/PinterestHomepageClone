@@ -24,6 +24,7 @@
     grid-template-columns: 1fr .69fr;
     grid-template-rows: 14em min-content 1fr;
     justify-content: center;
+    font-size: inherit;
 
     &__img {
         border-radius: 20%;

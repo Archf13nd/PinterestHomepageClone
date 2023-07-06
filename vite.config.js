@@ -1,8 +1,4 @@
 import { fileURLToPath, URL } from 'node:url'
-import postcssNested from 'postcss-nested'
-import postcssImport from 'postcss-import'
-import postcssCustomMedia from 'postcss-custom-media'
-import postcssPresetEnv from 'postcss-preset-env'
 
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
@@ -11,9 +7,7 @@ import vue from '@vitejs/plugin-vue'
 export default defineConfig({
   plugins: [vue()],
   css: {
-    postcss: {
-      plugins: [postcssNested, postcssImport, postcssPresetEnv]
-    }
+    devSourcemap: true
   },
   resolve: {
     alias: {
