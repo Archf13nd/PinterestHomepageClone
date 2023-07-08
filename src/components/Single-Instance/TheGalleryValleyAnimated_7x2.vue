@@ -9,18 +9,19 @@ defineProps({
     <div class="gallery">
         <div class="gallery__wrapper">
             <div class="gallery__overlay"></div>
+            <!-- Renders 7 1x2 grids using responsive image loading with srcset and animates transition when new gallery is loaded in -->
             <div class="gallery__1x2" :style="{ 'animation-delay': calcAnimationDelay(i) }"
-                :class="[`gallery__1x2--${i}`, { 'render-1x2': isGalleryChanging }]" v-for="i in 7" :key="i">
-                <div class="gallery__bg-img" :class="`gallery__bg-img--${i}`" :style="{
-                    backgroundImage: `url(${imageURLs[i - 1]})`
-
-                }">
+                :class="[`gallery__1x2--${i}`, { 'render-1x2': isGalleryChanging }]" v-for="i in  7 " :key="i">
+                <div class="gallery__bg-img" :class="`gallery__bg-img--${i}`">
+                    <img :srcset="`${imageFiles[currentTheme]['hd'][i - 1]} 240w, ${imageFiles[currentTheme]['4k'][i - 1]} 480w`"
+                        sizes="(max-width: 1920px) 240px, 480px" :src="`${imageFiles[currentTheme][i - 1]}`" alt="">
                 </div>
-                <div v-if="[1, 2, 6, 7].includes(i)" class="gallery__bg-img" :style="{
-                    backgroundImage: `url(${imageURLs[i - 1]})`
-                }"></div>
+                <!-- The ternary operator is used to grab the last 4 images in the array-->
+                <div v-if="[1, 2, 6, 7].includes(i)" class="gallery__bg-img">
+                    <img :srcset="`${imageFiles[currentTheme]['hd'][i < 3 ? 6 + i : 6 + 10 - i]} 240w, ${imageFiles[currentTheme]['4k'][i < 3 ? 6 + i : 6 + 10 - i]} 480w`"
+                        sizes="(max-width: 1920px) 240px, 480px" :src="`${imageFiles[currentTheme][i - 1]}`" alt="">
+                </div>
             </div>
-
         </div>
     </div>
 </template>
@@ -30,6 +31,26 @@ export default {
     data() {
         return {
             devMode: true,
+            currentTheme: 'travel',
+            imageFiles: {
+                'digital-art': {
+                    hd: [],
+                    '4k': []
+                },
+                'new-look': {
+                    hd: [],
+                    '4k': []
+                },
+                'food-ideas': {
+                    hd: [],
+                    '4k': []
+                },
+                'travel': {
+                    hd: [],
+                    '4k': []
+                },
+
+            },
             imageURLs: [],
             toRenderArray: [true, true, true, true, true, true, true],
             renderSpeed: 350,
@@ -43,18 +64,48 @@ export default {
         }
     },
     async created() {
-        for (let i = 0; i < 11; i++) {
-            if (this.devMode) {
-                this.imageURLs.push('https://images.pexels.com/photos/17248059/pexels-photo-17248059/free-photo-of-black-and-white-picture-of-a-woman-sitting-on-a-chair-on-the-beach.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load')
+        console.log('created')
 
-            } else {
-
-                const response = await fetch('https://picsum.photos/200/300')
-                const imageURL = await response.url
-
-                this.imageURLs.push(imageURL)
-            }
+        const digitalArtFilesHD = import.meta.glob(`/public/images/gallery_desktop/digital-art/@H350/*`)
+        for (const file in digitalArtFilesHD) {
+            this.imageFiles['digital-art'].hd.push(file)
         }
+
+        const digitalArtFiles4K = import.meta.glob(`/public/images/gallery_desktop/digital-art/@H700/*`)
+        for (const file in digitalArtFiles4K) {
+            this.imageFiles['digital-art']['4k'].push(file)
+        }
+
+        const newLookFilesHD = import.meta.glob(`/public/images/gallery_desktop/new-look/@H350/*`)
+        for (const file in newLookFilesHD) {
+            this.imageFiles['new-look'].hd.push(file)
+        }
+
+        const newLookFiles4K = import.meta.glob(`/public/images/gallery_desktop/new-look/@H700/*`)
+        for (const file in newLookFiles4K) {
+            this.imageFiles['new-look']['4k'].push(file)
+        }
+
+        const foodIdeasFilesHD = import.meta.glob(`/public/images/gallery_desktop/food-ideas/@H350/*`)
+        for (const file in foodIdeasFilesHD) {
+            this.imageFiles['food-ideas'].hd.push(file)
+        }
+
+        const foodIdeasFiles4K = import.meta.glob(`/public/images/gallery_desktop/food-ideas/@H700/*`)
+        for (const file in foodIdeasFiles4K) {
+            this.imageFiles['food-ideas']['4k'].push(file)
+        }
+        const travelFilesHD = import.meta.glob(`/public/images/gallery_desktop/travel/@H350/*`)
+        for (const file in travelFilesHD) {
+            this.imageFiles['travel'].hd.push(file)
+        }
+
+        const travelFiles4K = import.meta.glob(`/public/images/gallery_desktop/travel/@H700/*`)
+        for (const file in travelFiles4K) {
+            this.imageFiles['travel']['4k'].push(file)
+        }
+
+
     }
 }
 </script>
@@ -86,6 +137,13 @@ export default {
         margin: .5rem;
         border-radius: 1rem;
         flex-shrink: 0;
+        overflow: hidden;
+
+        & img {
+            border-radius: inherit;
+            height: 100%;
+            object-fit: contain;
+        }
     }
 
     &__1x2 {

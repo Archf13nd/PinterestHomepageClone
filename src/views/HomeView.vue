@@ -5,7 +5,9 @@ import signupForm from "../components/Single-Instance/TheSignUpForm.vue"
 import CollageDense from "../components/Single-Instance/TheCollageDense.vue"
 import TheCollageSparse from "../components/Single-Instance/TheCollageSparse.vue"
 import TheBackgroundWithMobile from "../components/Single-Instance/TheBackgroundWithMobile.vue"
+import TheCTAMobile from "../components/Single-Instance/TheCTAMobile.vue"
 import TheFooter from "../components/Single-Instance/TheFooter.vue"
+import TheGalleryDesktop from "../components/Single-Instance/TheGalleryDesktop.vue"
 
 import SplitScreen from "../components/Base/AppSplitScreen.vue"
 import SectionText from "../components/Base/AppSectionText.vue"
@@ -69,7 +71,8 @@ import AppBtnRound from "../components/Base/AppButtonRound.vue"
       </section>
 
       <section class="section section-4" id="shop" :style="{ 'height': pageHeight + 'px' }">
-        <SplitScreen :scale="maxWidth('bp-tablet-portrait') ? .7 : 1" :ratio="maxWidth('bp-tablet-portrait') ? .6 : .5">
+        <SplitScreen class="section-4__splitscreen" :scale="maxWidth('bp-tablet-portrait') ? .7 : 1"
+          :ratio="maxWidth('bp-tablet-portrait') ? .6 : .5">
           <template v-slot:left>
             <TheBackgroundWithMobile></TheBackgroundWithMobile>
           </template>
@@ -91,12 +94,13 @@ import AppBtnRound from "../components/Base/AppButtonRound.vue"
 
 
       <section v-if="maxWidth('bp-tablet-portrait')" class="section section-5" id="signup">
-        <AppHeroMobile></AppHeroMobile>
+        <TheCTAMobile></TheCTAMobile>
       </section>
       <section v-if="!maxWidth('bp-tablet-portrait')" class="section section-5 section-5--desktop" id="signup"
         :style="{ 'height': pageHeight + 'px' }">
 
         <AppBtnRound @click="changeCurrentSection(-1)" :background-color="'#9C0343'"></AppBtnRound>
+        <TheGalleryDesktop></TheGalleryDesktop>
         <SplitScreen>
           <template v-slot:left>
             <h2 class="section-5__header">Sign up to get your ideas</h2>
@@ -224,9 +228,14 @@ export default {
 
 .section-2 {
   background: var(--c-bg-yellow);
+  font-size: 1rem;
 
   @media (max-width: $bp-tablet-portrait) {
-    font-size: .5rem;
+    font-size: .7rem;
+  }
+
+  @media (max-width: $bp-mobile) {
+    font-size: .6rem;
   }
 
   &__splitscreen {
@@ -241,7 +250,7 @@ export default {
   }
 
   &__text {
-    padding-bottom: 6rem;
+    /* padding-bottom: 6rem; */
     margin: 0 auto;
     align-self: center;
   }
@@ -277,6 +286,12 @@ export default {
 
   @media (max-width: $bp-tablet-portrait) {
     font-size: .5rem;
+  }
+
+  &__splitscreen {
+    @media (max-width: $bp-tablet-portrait) {
+      flex-direction: column;
+    }
   }
 }
 
@@ -317,5 +332,8 @@ export default {
   position: absolute;
   width: 100%;
   bottom: 0;
+  background: var(--c-white);
+  color: var(--c-black);
+
 }
 </style>

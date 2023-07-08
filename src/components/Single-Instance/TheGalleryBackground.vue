@@ -3,14 +3,15 @@ defineProps({
     imageFolderName: String
 })
 
-const images = ['womanFROMunsplash', 'spicesFROMunsplash', 'tangerineFROMunsplash', 'woman_laughingFROMunsplash', 'mugFROMunsplash', 'manFROMunsplash', 'leavesFROMunsplash', 'dressFROMunsplash', 'controllerFROMunsplash', 'churchFROMunsplash', 'cakeFROMunsplash', 'balloonsFROMunsplash']
 </script>
 
 <template>
     <div class="gallery-background">
         <div v-for="i in 12" :key="i" class="gallery-background__image">
-            <img :srcset="`/gallery_mobile/${images[i - 1]}@1x.jpg 1x, /gallery_mobile@2x/${images[i - 1]}@2x.jpg 2x, /gallery_mobile@3x/${images[i - 1]}@3x.jpg 3x`"
-                sizes="(max-width: 600)" alt="">
+
+            <img :srcset="`${imagesW110[i - 1]} 110w, ${imagesW220[i - 1]} 220w, ${imagesW330[i - 1]} 330w`"
+                sizes="(max-width: 350px) 110px, (max-width: 700px) 220px, 330px" alt="">
+
         </div>
     </div>
 </template>
@@ -19,17 +20,45 @@ const images = ['womanFROMunsplash', 'spicesFROMunsplash', 'tangerineFROMunsplas
 export default {
     data() {
         return {
-            images: []
+            imagesW110: [],
+            imagesW220: [],
+            imagesW330: []
         }
     },
     created() {
-
+        const galleryFilesW110 = import.meta.glob('/public/images/gallery-mobile-hero/w110/\*');
+        for (const file in galleryFilesW110) {
+            this.imagesW110.push(file)
+        }
+        const galleryFilesW220 = import.meta.glob("/public/images/gallery-mobile-hero/w220/\*")
+        for (const file in galleryFilesW220) {
+            this.imagesW220.push(file)
+        }
+        const galleryFilesW330 = import.meta.glob("/public/images/gallery-mobile-hero/w330/\*")
+        for (const file in galleryFilesW330) {
+            this.imagesW330.push(file)
+        }
     }
 }
 </script>
 
 <style scoped>
 .gallery-background {
+    position: absolute;
+    max-width: 100%;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: grid;
+    left: 0;
+    grid-template-columns: repeat(4, minmax(70px, 330px));
+    z-index: -10;
+    background: #000;
+
+    @media (max-width: $bp-mobile) {
+        grid-template-columns: repeat(3, minmax(70px, 330px));
+    }
+
 
     &__image {
         height: 100%;

@@ -49,19 +49,7 @@ import GoogleLogo from "../../assets/logos/google.logo.png"
     margin-top: 2rem;
 }
 
-.gallery-background {
-    position: absolute;
-    max-width: 100%;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    display: grid;
-    left: 0;
-    grid-template-columns: repeat(3, minmax(1rem, 1fr));
-    grid-template-rows: repeat(4, max-content);
-    z-index: -10;
-    background: #000;
-}
+
 
 .hero {
     padding: 0 10%;

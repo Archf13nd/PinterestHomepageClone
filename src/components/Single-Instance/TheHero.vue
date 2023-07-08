@@ -42,19 +42,19 @@ export default {
             timingCycle3: 0,
             titles: [
                 {
-                    title: "New makeup ideas",
+                    title: "New Look",
                     color: "green"
                 },
                 {
-                    title: "Create character art",
+                    title: "Digital Art Inspiration",
                     color: "red"
                 },
                 {
-                    title: "Fresh website designs",
+                    title: "Food Ideas",
                     color: "blue",
                 },
                 {
-                    title: "Crazy hair styles",
+                    title: "Place to travel",
                     color: "violet"
                 }]
         }

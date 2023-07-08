@@ -1,4 +1,4 @@
 export default {
-  'bp-mobile': '600px',
+  'bp-mobile': '450px',
   'bp-tablet-portrait': '900px'
 }

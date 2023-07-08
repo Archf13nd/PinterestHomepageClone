@@ -2,20 +2,20 @@
     <footer class="footer">
         <nav class="nav">
             <ul class="footer__links">
-                <li class="">
-                    <a class="footer__link footer__link--desktop" href="#">Terms of Service</a>
+                <li class="footer__link--desktop">
+                    <a class="footer__link " href="#">Terms of Service</a>
                 </li>
-                <li class="">
-                    <a class="footer__link footer__link--desktop" href="#">Privacy Policy</a>
+                <li class="footer__link--desktop">
+                    <a class="footer__link " href="#">Privacy Policy</a>
                 </li>
-                <li class="">
-                    <a class="footer__link footer__link--desktop" href="#">Help</a>
+                <li class="footer__link--desktop">
+                    <a class="footer__link " href="#">Help</a>
                 </li>
-                <li class="">
-                    <a class="footer__link footer__link--desktop" href="#">Iphone App</a>
+                <li class="footer__link--desktop">
+                    <a class="footer__link x" href="#">Iphone App</a>
                 </li>
-                <li class="">
-                    <a class="footer__link footer__link--desktop" href="#">Android App</a>
+                <li class="footer__link--desktop">
+                    <a class="footer__link " href="#">Android App</a>
                 </li>
                 <li class="">
                     <a class="footer__link" href="#">Users</a>
@@ -44,12 +44,14 @@
 <style scoped>
 .footer {
     height: 3rem;
-    background: var(--c-white);
+    width: 100%;
     font-size: .75rem;
 
 
     & nav {
         height: 100%;
+        display: flex;
+        justify-content: center;
     }
 
     &__links {
@@ -68,6 +70,7 @@
     &__link {
         color: var(--c-black);
         font-weight: 600;
+        color: inherit;
     }
 }
 
