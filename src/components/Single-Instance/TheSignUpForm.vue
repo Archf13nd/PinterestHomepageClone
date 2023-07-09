@@ -25,8 +25,8 @@ import AppIcon from "../Base/AppIcon.vue"
                     <label for="email">Email</label>
                     <input type="email" name="email" @blur="validateEmail" v-model="form.email" placeholder="Email">
                     <div v-if="form.errors.email && form.email" class="signup__error-text">
-                        <div class="flex">
-                            <AppIcon :file="ExclamationTriangle" :fontSize="'1em'"></AppIcon>{{ form.errors.email }}
+                        <div class="flex" v-icon="ExclamationTriangle">
+                            {{ form.errors.email }}
                         </div>
                     </div>
                 </div>
@@ -37,12 +37,12 @@ import AppIcon from "../Base/AppIcon.vue"
                     <div v-if="passwordType === 'password'" @click="passwordType = 'text'" class="signup__show-password">
                         <AppIcon :file="EyeFill" :fontSize="'1em'"></AppIcon>
                     </div>
-                    <div v-if="passwordType === 'text'" @click="passwordType = 'password'" class="signup__show-password">
-                        <AppIcon :file="EyeSlashFill" :fontSize="'1em'"></AppIcon>
+                    <div v-if="passwordType === 'text'" @click="passwordType = 'password'" class="signup__show-password"
+                        v-icon="EyeSlashFill">
                     </div>
                     <div v-if="form.errors.password && form.password && !form.errors.email" class="signup__error-text">
-                        <div class="flex">
-                            <AppIcon :file="ExclamationTriangle" :fontSize="'1em'"></AppIcon>{{ form.errors.password }}
+                        <div class="flex" v-icon="ExclamationTriangle">
+                            {{ form.errors.password }}
                         </div>
                     </div>
 
@@ -59,8 +59,7 @@ import AppIcon from "../Base/AppIcon.vue"
                     <input type="date" v-model="form.birthdate" placeholder="dd/mm/yyyy">
                     <div v-if="form.errors.birthdate && !form.errors.email && !form.errors.password"
                         class="signup__error-text">
-                        <div class="flex">
-                            <AppIcon :file="ExclamationTriangle" :fontSize="'1em'"></AppIcon>
+                        <div class="flex" v-icon="ExclamationTriangle">
                             {{ form.errors.birthdate }}
                         </div>
                     </div>
@@ -68,13 +67,11 @@ import AppIcon from "../Base/AppIcon.vue"
                 <button class="signup__btn signup__btn--pinterest mt-third">Continue</button>
             </form>
             <div class="signup__divider">OR</div>
-            <button class="signup__btn signup__btn--facebook">
-                <AppIcon :file="FacebookLogo" :fontSize="'2em'" :alt="'Facebook Brand Logo'"></AppIcon>
+            <button class="signup__btn signup__btn--facebook" v-icon="FacebookLogo">
                 <div class="signup__btn__text">Continue with
                     Facebook</div>
             </button>
-            <button class="signup__btn signup__btn--google mt-third">
-                <AppIcon :file="GoogleLogo" :fontSize="'2em'" :alt="'Google Brand Logo'"></AppIcon>
+            <button class="signup__btn signup__btn--google mt-third" v-icon="GoogleLogo">
                 <div class="signup__btn__text">Continue with Google</div>
             </button>
             <p class="signup__footer-text mt-half">By continuing, you agree to Pinterest's <a href="#">Terms of Service</a>
@@ -288,10 +285,11 @@ export default {
         align-items: center;
         text-align: center;
         justify-content: center;
-        font-size: 1rem;
+        font-size: 1.5rem;
 
         &__text {
             width: 100%;
+            font-size: 1rem;
             font-family: inherit;
         }
 
@@ -300,6 +298,7 @@ export default {
             background: var(--c-company-pinterest);
             color: var(--c-white);
             font-weight: 600;
+            font-size: 1rem;
         }
 
         &--facebook {
@@ -307,7 +306,6 @@ export default {
             color: #fff;
             font-weight: 700;
             font-family: Helvetica, Arial, sans-serif;
-            font-size: 1rem;
 
         }
 

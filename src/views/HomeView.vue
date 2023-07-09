@@ -35,7 +35,7 @@ import AppBtnRound from "../components/Base/AppButtonRound.vue"
           <template v-slot:right>
             <SectionText class="section-2__text" :color="'#c31952'" :background-color="'#fffd92'">
               <template v-slot:heading>
-                Search for an idea
+                {{ $t("hero.idea") }}
               </template>
               <template v-slot:paragraph>
                 What do you want to try next? Think of something you’re into—like “easy chicken dinner”—and see what you

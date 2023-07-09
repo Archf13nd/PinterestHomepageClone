@@ -1,5 +1,4 @@
 <script setup>
-import Icon from "./AppIcon.vue"
 import CaretDown from "../../assets/icons/caret-down.svg"
 
 defineProps({
@@ -8,8 +7,7 @@ defineProps({
 </script>
 
 <template>
-    <button :style="{ 'background-color': backgroundColor || '#fff' }" class="btn-round-caret">
-        <Icon :file="CaretDown" :fontSize="'2em'"></Icon>
+    <button :style="{ 'background-color': backgroundColor || '#fff' }" class="btn-round-caret" v-icon="CaretDown">
     </button>
 </template>
 
@@ -24,6 +22,7 @@ defineProps({
     justify-content: center;
     align-items: center;
     z-index: 100;
+    font-size: 1.5rem;
 
 
 }
