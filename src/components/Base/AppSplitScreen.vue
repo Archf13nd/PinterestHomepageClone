@@ -8,7 +8,7 @@ defineProps({
 </script>
 
 <template>
-    <div class="screen">
+    <div class="screen" :id="'example'">
         <div class="screen__left" :style="{ 'flex-basis': `${(ratio) * 100}%` }">
             <slot name="left"></slot>
         </div>
