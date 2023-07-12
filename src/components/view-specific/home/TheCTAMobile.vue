@@ -1,36 +1,39 @@
 <script setup>
-import ButtonCTA from "../Base/AppButton-CTA.vue"
+import ButtonCTA from "@/components/Base/AppButton-CTA.vue"
 import GalleryBackground from "./TheGalleryBackground.vue"
+import TheFooter from "./TheFooter.vue"
 
-import PinterestLogo from "../../assets/logos/p-badge-white.svg"
-import FacebookLogo from "../../assets/logos/f_logo_RGB-White_58.png"
-import GoogleLogo from "../../assets/logos/google.logo.png"
+import PinterestLogo from "@/assets/logos/p-badge-white.svg"
+import FacebookLogo from "@/assets/logos/f_logo_RGB-White_58.png"
+import GoogleLogo from "@/assets/logos/google.logo.png"
+
 
 
 </script>
 
 <template>
-    <section class="hero">
+    <section class="cta">
         <GalleryBackground :imageFolderName="'gallery-mobile'"></GalleryBackground>
-        <div class="hero__logo">
+        <div class="cta__logo">
             <img :src="PinterestLogo" alt="">
         </div>
-        <h1 class="hero__heading-1">Welcome to <br> Pinterest</h1>
+        <h1 class="cta__heading-1">Sign up to explore the world's best ideas</h1>
 
-        <ButtonCTA class="mt-large hero__btn hero__btn--pinterest" :text="'Continue with email'"></ButtonCTA>
-        <ButtonCTA class="mt-tiny hero__btn hero__btn--facebook" :file="FacebookLogo" :text="'Continue with Facebook'">
+        <ButtonCTA class="mt-large cta__btn cta__btn--pinterest" :text="'Continue with email'"></ButtonCTA>
+        <ButtonCTA class="mt-tiny cta__btn cta__btn--facebook" :file="FacebookLogo" :text="'Continue with Facebook'">
         </ButtonCTA>
-        <ButtonCTA class="mt-tiny hero__btn hero__btn--google" :file="GoogleLogo" :text="'Continue with Google'">
+        <ButtonCTA class="mt-tiny cta__btn cta__btn--google" :file="GoogleLogo" :text="'Continue with Google'">
         </ButtonCTA>
 
-        <div class="hero__text mt-large">Already a member? <a class="hero__link" href="#">Log in</a></div>
-        <div class="hero__text mt-large">Are you a business? <a class="hero__link" href="#">Get started here</a></div>
+        <div class="cta__text mt-large">Already a member? <a class="cta__link" href="#">Log in</a></div>
+        <div class="cta__text mt-large">Are you a business? <a class="cta__link" href="#">Get started here</a></div>
 
-        <div class="hero__footer-text mt-large">
-            By continuing, you agree to Pinterest's <a class="hero__link" href="#">Terms of Service</a> and acknowledge that
-            you've read our <a href="#" class="hero__link">Privacy Policy</a>. <a href="#" class="hero__link">Notice at
+        <div class="cta__footer-text mt-large">
+            By continuing, you agree to Pinterest's <a class="cta__link" href="#">Terms of Service</a> and acknowledge that
+            you've read our <a href="#" class="cta__link">Privacy Policy</a>. <a href="#" class="cta__link">Notice at
                 collection</a>
         </div>
+        <TheFooter></TheFooter>
 
     </section>
 </template>
@@ -49,9 +52,21 @@ import GoogleLogo from "../../assets/logos/google.logo.png"
     margin-top: 2rem;
 }
 
+.gallery-background {
+    position: absolute;
+    max-width: 100%;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: grid;
+    left: 0;
+    grid-template-columns: repeat(3, minmax(1rem, 1fr));
+    grid-template-rows: repeat(4, max-content);
+    z-index: -10;
+    background: #000;
+}
 
-
-.hero {
+.cta {
     padding: 0 10%;
     background: #0000009d;
     height: 100vh;
@@ -82,6 +97,7 @@ import GoogleLogo from "../../assets/logos/google.logo.png"
     &__btn {
         width: 80%;
         max-width: 25rem;
+        font-size: 1rem;
 
         &--pinterest {
             background: var(--c-company-pinterest);
@@ -121,6 +137,7 @@ import GoogleLogo from "../../assets/logos/google.logo.png"
     &__text {
         color: #fff;
         text-align: center;
+        font-size: .75rem;
     }
 
     &__link {
@@ -133,5 +150,10 @@ import GoogleLogo from "../../assets/logos/google.logo.png"
         color: #fff;
         text-align: center;
     }
+}
+
+.footer {
+    background: none;
+    color: #fff;
 }
 </style>

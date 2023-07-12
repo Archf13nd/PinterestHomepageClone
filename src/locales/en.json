@@ -1,5 +1,23 @@
 {
   "hero": {
     "idea": "Search for an idea"
+  },
+  "ideas": {
+    "heading": "Search for an idea",
+    "paragraph": "What do you want to try next? Think of something you’re into—like “easy chicken dinner”—and see what you find.",
+    "button": "Explore"
+  },
+  "save-ideas": {
+    "heading": "Save ideas you like",
+    "paragraph": "Collect your favorites so you can get back to them later.",
+    "button": "Explore"
+  },
+  "shop": {
+    "heading": " See it, make it, try it, do it",
+    "paragraph": "The best part of Pinterest is discovering new things and ideas from people around the world.",
+    "button": "Explore"
+  },
+  "signup": {
+    "heading": "Sign up to get your ideas"
   }
 }

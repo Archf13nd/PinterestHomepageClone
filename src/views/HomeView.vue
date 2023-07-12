@@ -1,16 +1,14 @@
 <script setup>
-import AppHero from "../components/Single-Instance/TheHero.vue"
-import AppHeroMobile from "../components/Single-Instance/TheHeroMobile.vue"
-import signupForm from "../components/Single-Instance/TheSignUpForm.vue"
-import CollageDense from "../components/Single-Instance/TheCollageDense.vue"
-import TheCollageSparse from "../components/Single-Instance/TheCollageSparse.vue"
-import TheBackgroundWithMobile from "../components/Single-Instance/TheBackgroundWithMobile.vue"
-import TheCTAMobile from "../components/Single-Instance/TheCTAMobile.vue"
-import TheFooter from "../components/Single-Instance/TheFooter.vue"
-import TheGalleryDesktop from "../components/Single-Instance/TheGalleryDesktop.vue"
+import AppHero from "../components/view-specific/home/TheHero.vue"
+import AppHeroMobile from "../components/view-specific/home/TheHeroMobile.vue"
+import signupForm from "../components/view-specific/home/TheSignUpForm.vue"
+import CollageDense from "../components/view-specific/home/TheCollageDense.vue"
+import TheCollageSparse from "../components/view-specific/home/TheCollageSparse.vue"
+import TheBackgroundWithMobile from "../components/view-specific/home/TheBackgroundWithMobile.vue"
+import TheCTAMobile from "../components/view-specific/home/TheCTAMobile.vue"
+import TheFooter from "../components/view-specific/home/TheFooter.vue"
+import TheGalleryDesktop from "../components/view-specific/home/TheGalleryDesktop.vue"
 
-import SplitScreen from "../components/Base/AppSplitScreen.vue"
-import SectionText from "../components/Base/AppSectionText.vue"
 import AppBtnRound from "../components/Base/AppButtonRound.vue"
 
 
@@ -22,99 +20,69 @@ import AppBtnRound from "../components/Base/AppButtonRound.vue"
   </div>
   <main class="page">
     <div class="page__window" :style="{ 'top': getPosFromTop + 'px' }">
-      <section class=" section section-1" id="hero" :style="{ 'height': pageHeight + 'px' }">
+      <section class="section section-1" id="hero" :style="{ 'height': pageHeight + 'px' }">
         <AppHeroMobile v-if="pageWidth < 900"></AppHeroMobile>
         <AppHero v-else @bannerClicked="changeCurrentSection(1)"></AppHero>
       </section>
 
-      <section class="section section-2" id="ideas" :style="{ 'height': pageHeight + 'px' }">
-        <SplitScreen class="section-2__splitscreen">
-          <template v-slot:left>
-            <CollageDense class="section-2__collage"></CollageDense>
-          </template>
-          <template v-slot:right>
-            <SectionText class="section-2__text" :color="'#c31952'" :background-color="'#fffd92'">
-              <template v-slot:heading>
-                {{ $t("hero.idea") }}
-              </template>
-              <template v-slot:paragraph>
-                What do you want to try next? Think of something you’re into—like “easy chicken dinner”—and see what you
-                find.
-              </template>
-              <template v-slot:btn>
-                Explore
-              </template>
-            </SectionText>
-          </template>
-        </SplitScreen>
+      <section class="section section-2 splitscreen" id="ideas" :style="{ 'height': pageHeight + 'px' }">
+        <CollageDense class="section-2__collage"></CollageDense>
+        <div class="section-text section-text--collage">
+          <h2 class="section-text__heading">
+            {{ $t("ideas.heading") }}
+          </h2>
+          <p class="section-text__paragraph">
+            {{ $t("ideas.paragraph") }}
+          </p>
+          <a class="section-text__cta" href="#">
+            {{ $t("ideas.button") }}
+          </a>
+        </div>
       </section>
 
-      <section class="section section-3" id="save-ideas" :style="{ 'height': pageHeight + 'px' }">
-        <SplitScreen class="section-3__splitscreen">
-          <template v-slot:left>
-            <SectionText class="section-3__text" :color="'#006b6c'" :background-color="'#dafff6'">
-              <template v-slot:heading>
-                Save ideas you like
-              </template>
-              <template v-slot:paragraph>
-                Collect your favorites so you can get back to them later.
-              </template>
-              <template v-slot:btn>
-                Explore
-              </template>
-            </SectionText>
-          </template>
-          <template v-slot:right>
-            <TheCollageSparse class="section-3__collage"></TheCollageSparse>
-          </template>
-        </SplitScreen>
+      <section class="section section-3 splitscreen" id="save-ideas" :style="{ 'height': pageHeight + 'px' }">
+        <div class="section-text section-text--collage">
+          <h2 class="section-text__heading">
+            {{ $t("save-ideas.heading") }}
+          </h2>
+          <p class="section-text__paragraph">
+            {{ $t("save-ideas.paragraph") }}
+          </p>
+          <a class="section-text__cta" href="#">
+            {{ $t("save-ideas.button") }}
+          </a>
+        </div>
+        <TheCollageSparse class="section-3__collage"></TheCollageSparse>
+
       </section>
 
-      <section class="section section-4" id="shop" :style="{ 'height': pageHeight + 'px' }">
-        <SplitScreen class="section-4__splitscreen" :scale="maxWidth('bp-tablet-portrait') ? .7 : 1"
-          :ratio="maxWidth('bp-tablet-portrait') ? .6 : .5">
-          <template v-slot:left>
-            <TheBackgroundWithMobile></TheBackgroundWithMobile>
-          </template>
-          <template v-slot:right>
-            <SectionText class="section-3__text" :color="'#c32f00'" :background-color="'#ffe2eb'">
-              <template v-slot:heading>
-                See it, make it, try it, do it
-              </template>
-              <template v-slot:paragraph>
-                The best part of Pinterest is discovering new things and ideas from people around the world.
-              </template>
-              <template v-slot:btn>
-                Explore
-              </template>
-            </SectionText>
-          </template>
-        </SplitScreen>
+      <section class="section section-4 splitscreen" id="shop" :style="{ 'height': pageHeight + 'px' }">
+        <TheBackgroundWithMobile></TheBackgroundWithMobile>
+        <div class="section-text section-text--collage">
+          <h2 class="section-text__heading">
+            {{ $t("shop.heading") }}
+          </h2>
+          <p class="section-text__paragraph">
+            {{ $t("shop.paragraph") }}
+          </p>
+          <a class="section-text__cta" href="#">
+            {{ $t("shop.button") }}
+          </a>
+        </div>
       </section>
-
 
       <section v-if="maxWidth('bp-tablet-portrait')" class="section section-5" id="signup">
         <TheCTAMobile></TheCTAMobile>
       </section>
-      <section v-if="!maxWidth('bp-tablet-portrait')" class="section section-5 section-5--desktop" id="signup"
+      <section v-if="!maxWidth('bp-tablet-portrait')" class="section section-5 section-5--desktop splitscreen" id="signup"
         :style="{ 'height': pageHeight + 'px' }">
-
+        <h2 class="section-5__header">{{ $t("signup.heading") }}</h2>
+        <signupForm class="section-5__signup-form"></signupForm>
         <AppBtnRound @click="changeCurrentSection(-1)" :background-color="'#9C0343'"></AppBtnRound>
         <TheGalleryDesktop></TheGalleryDesktop>
-        <SplitScreen>
-          <template v-slot:left>
-            <h2 class="section-5__header">Sign up to get your ideas</h2>
-          </template>
-          <template v-slot:right>
-            <signupForm class="section-5__signup-form"></signupForm>
-          </template>
-        </SplitScreen>
         <TheFooter></TheFooter>
       </section>
-
-
     </div>
-
   </main>
 </template>
 
@@ -225,6 +193,67 @@ export default {
 
 }
 
+.splitscreen {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+
+  @media (max-width: $bp-tablet-portrait) {
+    display: block;
+  }
+}
+
+.section-text {
+  max-width: 40rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 0 auto;
+  margin-top: 3rem;
+
+  &__heading {
+    font-size: 3.75rem;
+    font-weight: 700;
+    line-height: 1;
+
+    @media (max-width: $bp-tablet-portrait) {
+      font-size: 1.75rem;
+    }
+  }
+
+  &__paragraph {
+    font-size: 1.5rem;
+    text-align: center;
+    max-width: 18rem;
+    line-height: 1.3;
+    margin-top: 1rem;
+  }
+
+
+  &__cta {
+    padding: .8rem;
+    background: #000;
+    width: 6rem;
+    border-radius: 2rem;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.5rem;
+    font-size: 1rem;
+  }
+
+  /* Mobile */
+  @media (max-width: 900px) {
+
+    &__paragraph {
+      font-size: 1rem;
+    }
+  }
+}
 
 .section-2 {
   background: var(--c-bg-yellow);

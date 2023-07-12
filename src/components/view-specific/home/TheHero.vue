@@ -1,10 +1,10 @@
 <script setup>
-import AnimatedText from "../Base/AppAnimatedText.vue"
-import BtnRow from "../Base/AppBtnRow.vue"
+import AnimatedText from "@/components/Base/AppAnimatedText.vue"
+import BtnRow from "@/components/Base/AppBtnRow.vue"
 import Gallery from "./TheGalleryValleyAnimated_7x2.vue";
 import Banner from "./TheBanner.vue"
 import AppHeader from "./TheHeader.vue"
-import timer from "../../assets/js/timer.js"
+import timer from "@/assets/js/timer.js"
 </script>
 
 <template>

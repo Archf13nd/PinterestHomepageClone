@@ -1,8 +1,8 @@
 <script setup>
-import AppButtonRound from "../Base/AppButtonRound.vue"
-import AppBouncingAnimation from "../BaseAnimated/AppBouncingAnimation.vue"
-import Icon from "../Base/AppIcon.vue"
-import CaretDown from "../../assets/icons/caret-down.svg"
+import AppButtonRound from "@/components/Base/AppButtonRound.vue"
+import AppBouncingAnimation from "@/components/BaseAnimated/AppBouncingAnimation.vue"
+import Icon from "@/components/Base/AppIcon.vue"
+import CaretDown from "@/assets/icons/caret-down.svg"
 
 defineProps({
     backgroundColor: String
