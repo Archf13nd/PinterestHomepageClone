@@ -14,19 +14,20 @@ import PinterestLogo from "@/assets/logos/badgeRGB.png"
     <nav class="header__nav">
       <ul class="header__nav-items">
         <li class="header__nav-item">
-          <RouterLink class="header__nav-link" to="#">About</RouterLink>
+          <RouterLink class="header__nav-link" to="#">{{ $t("header.about") }}</RouterLink>
         </li>
         <li class="header__nav-item">
-          <RouterLink class="header__nav-link" to="#">Business</RouterLink>
+          <RouterLink class="header__nav-link" to="#">{{ $t("header.business") }}</RouterLink>
         </li>
         <li class="header__nav-item">
-          <RouterLink class="header__nav-link" to="#">Blog</RouterLink>
+          <RouterLink class="header__nav-link" to="#">{{ $t("header.blog") }}</RouterLink>
         </li>
         <li class="header__nav-item">
-          <RouterLink class="header__btn header__nav-link  header__btn--brand-bg" to="#">Login</RouterLink>
+          <RouterLink class="header__btn header__nav-link  header__btn--brand-bg" to="#">{{ $t("header.login") }}
+          </RouterLink>
         </li>
         <li class="header__nav-item">
-          <RouterLink class="header__btn header__nav-link" to="#">Sign up</RouterLink>
+          <RouterLink class="header__btn header__nav-link" to="#">{{ $t("header.signup") }}</RouterLink>
         </li>
       </ul>
     </nav>

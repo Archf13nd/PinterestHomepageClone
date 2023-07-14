@@ -8,7 +8,7 @@ defineProps({
 <template>
     <div class="gallery-background">
         <div v-for="i in 12" :key="i" class="gallery-background__image">
-
+            <h1></h1>
             <img :srcset="`${imagesW110[i - 1]} 110w, ${imagesW220[i - 1]} 220w, ${imagesW330[i - 1]} 330w`"
                 sizes="(max-width: 350px) 110px, (max-width: 700px) 220px, 330px" alt="">
 

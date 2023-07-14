@@ -4,3 +4,5 @@
 @import './base/_base.css';
 @import './base/_helper.css';
 @import './base/_animations.css';
+
+@import './components/_form.css';

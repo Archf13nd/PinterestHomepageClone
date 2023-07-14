@@ -17,22 +17,24 @@ import GoogleLogo from "@/assets/logos/google.logo.png"
         <div class="cta__logo">
             <img :src="PinterestLogo" alt="">
         </div>
-        <h1 class="cta__heading-1">Sign up to explore the world's best ideas</h1>
+        <h1 class="cta__heading-1">{{ $t("mobile-cta.signup-heading") }}</h1>
 
-        <ButtonCTA class="mt-large cta__btn cta__btn--pinterest" :text="'Continue with email'"></ButtonCTA>
-        <ButtonCTA class="mt-tiny cta__btn cta__btn--facebook" :file="FacebookLogo" :text="'Continue with Facebook'">
+        <ButtonCTA class="mt-large cta__btn cta__btn--pinterest" :text="$t('mobile-cta.cta-email')"></ButtonCTA>
+        <ButtonCTA class="mt-tiny cta__btn cta__btn--facebook" :file="FacebookLogo" :text="$t('mobile-cta.cta-facebook')">
         </ButtonCTA>
-        <ButtonCTA class="mt-tiny cta__btn cta__btn--google" :file="GoogleLogo" :text="'Continue with Google'">
+        <ButtonCTA class="mt-tiny cta__btn cta__btn--google" :file="GoogleLogo" :text="$t('mobile-cta.cta-google')">
         </ButtonCTA>
 
-        <div class="cta__text mt-large">Already a member? <a class="cta__link" href="#">Log in</a></div>
-        <div class="cta__text mt-large">Are you a business? <a class="cta__link" href="#">Get started here</a></div>
+        <i18n-t keypath="mobile-cta.already-member" tag="div" class="cta__text mt-large"><a class="cta__link" href="#">{{
+            $t("mobile-cta.already-member-link") }}</a></i18n-t>
+        <i18n-t keypath="mobile-cta.business" tag="div" class="cta__text mt-large"><a class="cta__link" href="#">{{
+            $t("mobile-cta.business-link") }}</a></i18n-t>
 
-        <div class="cta__footer-text mt-large">
-            By continuing, you agree to Pinterest's <a class="cta__link" href="#">Terms of Service</a> and acknowledge that
-            you've read our <a href="#" class="cta__link">Privacy Policy</a>. <a href="#" class="cta__link">Notice at
-                collection</a>
-        </div>
+        <i18n-t keypath="mobile-cta.legal-text" class="cta__footer-text mt-large" tag="div">
+            <a class="cta__link" href="#">{{ $t("mobile-cta.tos") }}</a>
+            <a href="#" class="cta__link">{{ $t("mobile-cta.privacy-policy") }}</a>
+            <a href="#" class="cta__link">{{ $t("mobile-cta.collection") }}</a>
+        </i18n-t>
         <TheFooter></TheFooter>
 
     </section>

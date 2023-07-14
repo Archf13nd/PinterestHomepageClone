@@ -23,6 +23,7 @@ import AppBtnRound from "../components/Base/AppButtonRound.vue"
       <section class="section section-1" id="hero" :style="{ 'height': pageHeight + 'px' }">
         <AppHeroMobile v-if="pageWidth < 900"></AppHeroMobile>
         <AppHero v-else @bannerClicked="changeCurrentSection(1)"></AppHero>
+
       </section>
 
       <section class="section section-2 splitscreen" id="ideas" :style="{ 'height': pageHeight + 'px' }">
@@ -40,7 +41,8 @@ import AppBtnRound from "../components/Base/AppButtonRound.vue"
         </div>
       </section>
 
-      <section class="section section-3 splitscreen" id="save-ideas" :style="{ 'height': pageHeight + 'px' }">
+      <section class="section section-3 splitscreen splitscreen__save-ideas" id="save-ideas"
+        :style="{ 'height': pageHeight + 'px' }">
         <div class="section-text section-text--collage">
           <h2 class="section-text__heading">
             {{ $t("save-ideas.heading") }}
@@ -56,7 +58,7 @@ import AppBtnRound from "../components/Base/AppButtonRound.vue"
 
       </section>
 
-      <section class="section section-4 splitscreen" id="shop" :style="{ 'height': pageHeight + 'px' }">
+      <section class="section section-4 splitscreen splitscreen__shop" id="shop" :style="{ 'height': pageHeight + 'px' }">
         <TheBackgroundWithMobile></TheBackgroundWithMobile>
         <div class="section-text section-text--collage">
           <h2 class="section-text__heading">
@@ -201,9 +203,25 @@ export default {
   align-items: center;
 
   @media (max-width: $bp-tablet-portrait) {
-    display: block;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+
+  &__save-ideas {
+    @media (max-width: $bp-tablet-portrait) {
+      & div:first-child {
+        grid-row: 2 / 3;
+      }
+    }
+  }
+
+  &__shop {
+    @media (max-width: $bp-tablet-portrait) {
+      grid-template-rows: 6fr 4fr;
+    }
   }
 }
+
 
 .section-text {
   max-width: 40rem;
@@ -227,7 +245,7 @@ export default {
   &__paragraph {
     font-size: 1.5rem;
     text-align: center;
-    max-width: 18rem;
+    max-width: 29ch;
     line-height: 1.3;
     margin-top: 1rem;
   }

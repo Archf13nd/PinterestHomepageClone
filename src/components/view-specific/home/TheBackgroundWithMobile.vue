@@ -4,7 +4,8 @@
             <div class="background-with-mobile__img">
                 <img src="https://cdn.pixabay.com/photo/2023/03/17/02/42/architecture-7857832_640.jpg" alt="">
             </div>
-            <p class="background-with-mobile__text">Scout the City<br><span>56.7k followers</span></p>
+            <p class="background-with-mobile__text">{{ $t("shop.background-phone-title") }}<br><span>{{
+                $t("shop.background-phone-subtext") }}</span></p>
             <div class="background-with-mobile__circle-img">
                 <img src="https://cdn.pixabay.com/photo/2018/04/05/09/32/portrait-3292287_640.jpg" alt="">
             </div>

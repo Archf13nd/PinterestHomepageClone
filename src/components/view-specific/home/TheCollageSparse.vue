@@ -1,19 +1,19 @@
 <template>
     <nav class="collage-sparse">
         <a class="collage-sparse__img collage-sparse__img--1 collage-sparse__img--large">
-            <span>Fern Future Home Vibes</span>
+            <span>{{ $t("save-ideas.image-1") }}</span>
         </a>
         <a class="collage-sparse__img collage-sparse__img--2">
-            <span>My scandinavian bedroom</span>
+            <span>{{ $t("save-ideas.image-2") }}</span>
         </a>
         <a class="collage-sparse__img collage-sparse__img--3">
-            <span>The deck of my dreams</span>
+            <span>{{ $t("save-ideas.image-3") }}</span>
         </a>
         <a class="collage-sparse__img collage-sparse__img--4">
-            <span>Serve my drinks in style</span>
+            <span>{{ $t("save-ideas.image-4") }}</span>
         </a>
         <a class="collage-sparse__img collage-sparse__img--5">
-            <span>Our bathroom upgrade</span>
+            <span>{{ $t("save-ideas.image-5") }}</span>
         </a>
     </nav>
 </template>

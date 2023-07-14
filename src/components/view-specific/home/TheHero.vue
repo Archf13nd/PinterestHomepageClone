@@ -1,5 +1,4 @@
 <script setup>
-import AnimatedText from "@/components/Base/AppAnimatedText.vue"
 import BtnRow from "@/components/Base/AppBtnRow.vue"
 import Gallery from "./TheGalleryValleyAnimated_7x2.vue";
 import Banner from "./TheBanner.vue"
@@ -11,18 +10,23 @@ import timer from "@/assets/js/timer.js"
     <div class="hero">
         <AppHeader></AppHeader>
         <div class="hero__heading">
-            <h2>Get your next</h2>
-            <AnimatedText :isTitleChanging="updateTitle">
-                <h2 :style="{ 'color': titles[currentTitle].color }" class="heading heading__bottom-text">{{
-                    titles[currentTitle].title }}</h2>
-            </AnimatedText>
+            <h2>
+                {{ $t("hero.header-top") }} <br>
+                <Transition name="slide-out-in" mode="out-in">
+                    <span v-if="currentFrame === 0" :style="{ color: colors[0] }">{{ $t("hero.header-look") }}</span>
+                    <span v-else-if="currentFrame === 1" :style="{ color: colors[1] }">{{ $t("hero.header-art") }}</span>
+                    <span v-else-if="currentFrame === 2" :style="{ color: colors[2] }">{{ $t("hero.header-food") }}</span>
+                    <span v-else-if="currentFrame === 3" :style="{ color: colors[3] }">{{ $t("hero.header-travel") }}</span>
+                </Transition>
+            </h2>
+
         </div>
-        <BtnRow @btnChange="changeSlide" :currentBtn="currentTitle" :currentColor="titles[currentTitle].color"></BtnRow>
+        <BtnRow @btnChange="changeSlide" :currentBtn="currentFrame" :currentColor="colors[currentFrame]"></BtnRow>
         <div class="hero-gallery-container">
             <div class="overlay"></div>
             <Gallery :isGalleryChanging="updateGallery"></Gallery>
         </div>
-        <Banner @bannerClicked="handleInteraction" :backgroundColor="titles[currentTitle].color"></Banner>
+        <Banner @bannerClicked="handleInteraction" :backgroundColor="colors[currentFrame]"></Banner>
     </div>
 </template>
 
@@ -33,46 +37,30 @@ export default {
             // States: done, entering, leaving
             animationState: 'done',
             isBeingAnimated: false,
-            currentTitle: 0,
+            currentFrame: 0,
             theTimer: null,
             updateTitle: false,
             currentTimings: null,
             timingCycle1: 0,
             timingCycle2: 0,
             timingCycle3: 0,
-            titles: [
-                {
-                    title: "New Look",
-                    color: "green"
-                },
-                {
-                    title: "Digital Art Inspiration",
-                    color: "red"
-                },
-                {
-                    title: "Food Ideas",
-                    color: "blue",
-                },
-                {
-                    title: "Place to travel",
-                    color: "violet"
-                }]
+            colors: ['#c28B00', '#61867b', '#0076d3', '#407a57']
         }
     },
     methods: {
         loadNextTitle() {
-            const numOfTitles = this.titles.length - 1
-            if (this.currentTitle < numOfTitles) {
-                this.currentTitle += 1
+            const numOfTitles = 3
+            if (this.currentFrame < numOfTitles) {
+                this.currentFrame += 1
             } else {
-                this.currentTitle = 0
+                this.currentFrame = 0
             }
         },
         changeSlide(e) {
             if (e === 0) {
-                this.currentTitle = 3
+                this.currentFrame = 3
             } else {
-                this.currentTitle = e - 1
+                this.currentFrame = e - 1
             }
             this.currentTimings['timing-1'] = 0
             this.currentTimings['timing-2'] = 0
@@ -108,7 +96,7 @@ export default {
     },
     created() {
         this.currentTimings = {
-            completeCycle: 6000
+            completeCycle: 3000
         }
         this.theTimer = timer(this.currentTimings, [
             {
@@ -133,10 +121,8 @@ export default {
     &__heading {
         font-size: 2.5rem;
         position: absolute;
-        left: 50%;
-        top: 47%;
+        top: 35%;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        transform: translate(-50%, -50%);
         text-align: center;
         font-weight: 600;
         width: 100%;
@@ -144,6 +130,10 @@ export default {
         & h2 {
             font-weight: inherit;
             line-height: 1.3;
+        }
+
+        & span {
+            display: block;
         }
 
     }
@@ -184,5 +174,44 @@ export default {
     bottom: 0;
     z-index: 100;
     width: 100%;
+}
+
+.slide-out-in-enter-active {
+    animation: slideUpEnter .5s forwards;
+}
+
+.slide-out-in-leave-active {
+    animation: slideUpLeave .75s;
+
+}
+
+
+
+@keyframes slideUpLeave {
+    0% {
+        transform: translateY(0rem);
+        opacity: 100%;
+    }
+
+    100% {
+        transform: translateY(-2rem);
+        opacity: 0%;
+
+    }
+}
+
+@keyframes slideUpEnter {
+    0% {
+        transform: translateY(1rem);
+        opacity: 0%;
+    }
+
+    10% {
+        opacity: 100%;
+    }
+
+    100% {
+        transform: translateY(0);
+    }
 }
 </style>

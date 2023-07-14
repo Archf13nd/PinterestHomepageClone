@@ -1,0 +1,92 @@
+.form {
+  display: flex;
+  flex-direction: column;
+
+  &__input-field {
+    position: relative;
+    --ml-text: 0.5rem;
+
+    &:hover &__input {
+      border: 2px solid green;
+    }
+  }
+
+  &__label {
+    font-size: 0.75rem;
+    margin-left: var(--ml-text);
+    position: relative;
+  }
+
+  &__input {
+    position: relative;
+    height: 3rem;
+    width: 100%;
+    border-radius: 1rem;
+    outline: 1px solid #cdcdcd;
+
+    & input {
+      border: none;
+      height: 100%;
+      width: 100%;
+      padding: 0 1rem;
+      border-radius: inherit;
+
+      &:focus,
+      &:hover {
+        outline: 2px solid #969696;
+      }
+    }
+
+    &--invalid {
+      outline: 2px solid red;
+    }
+    &--valid {
+      border: 2px solid green;
+    }
+  }
+
+  &__input-icon {
+    background: none;
+    height: 3rem;
+    width: 3rem;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    user-select: none;
+
+    &:hover {
+      background: #f3f2f2;
+    }
+  }
+
+  &__error-text {
+    /* font-size changes icon size */
+    font-size: 1rem;
+    color: var(--color-danger);
+    margin-left: var(--ml-text);
+    margin-top: 0.2rem;
+    line-height: 1;
+    /* changes size of inner text */
+    & > span {
+      font-size: 0.75rem;
+      margin-left: 0.5rem;
+    }
+  }
+
+  &__info-box {
+    font-size: 0.75rem;
+    position: absolute;
+    width: 15em;
+    background: var(--c-black);
+    color: var(--c-white);
+    border-radius: 0.5em;
+    padding: 0.5em;
+    transform: translate(10%, -50%);
+    z-index: 100;
+  }
+}

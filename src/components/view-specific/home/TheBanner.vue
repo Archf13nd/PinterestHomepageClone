@@ -14,7 +14,8 @@ defineProps({
         <AppBouncingAnimation @click="handleInteraction">
             <AppButtonRound :backgroundColor="backgroundColor"></AppButtonRound>
         </AppBouncingAnimation>
-        <button @click="handleInteraction" class="banner__btn">Here's how it works <Icon :file="CaretDown"></Icon></button>
+        <button @click="handleInteraction" class="banner__btn">{{ $t("banner.text") }} <Icon :file="CaretDown"></Icon>
+            </button>
     </div>
 </template> 
 

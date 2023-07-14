@@ -11,7 +11,7 @@ import SearchIcon from "@/assets/icons/search.svg"
         <div class="collage-dense__img-bg collage-dense__img-bg--2"></div>
         <div class="collage-dense__img-bg collage-dense__img-bg--3"></div>
         <div class="collage-dense__cta">
-            <Icon :file="SearchIcon" :fontSize="'2rem'"></Icon> Drawing ideas!
+            <Icon :file="SearchIcon" :fontSize="'2rem'"></Icon> {{ $t("ideas.search-text") }}
         </div>
     </div>
 </template>
