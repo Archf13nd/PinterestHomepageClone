@@ -6,7 +6,7 @@
                     sizes="(max-width: 1920px) 236px, 472px" alt="">
             </div>
             <div v-if="((i === 3 || i === 5))" class="gallery-desktop__img">
-                <img :srcset="`${imagesW236[i]} 236w, ${imagesW472[i - 1]} 472w`" sizes="(max-width: 1920px) 236px, 472px"
+                <img :srcset="`${imagesW236[i]} 236w, ${imagesW472[i]} 472w`" sizes="(max-width: 1920px) 236px, 472px"
                     alt="">
             </div>
         </div>
