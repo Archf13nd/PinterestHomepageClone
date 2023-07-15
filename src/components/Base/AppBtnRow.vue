@@ -8,19 +8,23 @@ defineProps({
 <template>
     <ul class="btn-row">
         <li>
-            <button class="btn-row__btn" :style="{ 'background-color': currentBtn === 0 ? currentColor : '#464646' }"
+            <button class="btn-row__btn" aria-label="Fashion Theme and Gallery"
+                :style="{ 'background-color': currentBtn === 0 ? currentColor : '#464646' }"
                 @click="changeActiveBtn(0)"></button>
         </li>
         <li>
-            <button class="btn-row__btn" :style="{ 'background-color': currentBtn === 1 ? currentColor : '#464646' }"
+            <button class="btn-row__btn" aria-label="Digital Art Theme and Gallery"
+                :style="{ 'background-color': currentBtn === 1 ? currentColor : '#464646' }"
                 @click="changeActiveBtn(1)"></button>
         </li>
         <li>
-            <button class="btn-row__btn" :style="{ 'background-color': currentBtn === 2 ? currentColor : '#464646' }"
+            <button class="btn-row__btn" aria-label="Food Theme and Gallery"
+                :style="{ 'background-color': currentBtn === 2 ? currentColor : '#464646' }"
                 @click="changeActiveBtn(2)"></button>
         </li>
         <li>
-            <button class="btn-row__btn" :style="{ 'background-color': currentBtn === 3 ? currentColor : '#464646' }"
+            <button class="btn-row__btn" aria-label="Travel Theme and Gallery"
+                :style="{ 'background-color': currentBtn === 3 ? currentColor : '#464646' }"
                 @click="changeActiveBtn(3)"></button>
         </li>
     </ul>
@@ -64,5 +68,4 @@ export default {
 
 
     }
-}
-</style>
+}</style>

@@ -18,7 +18,7 @@ import AppIcon from "@/components/Base/AppIcon.vue"
 <template>
     <section class="signup">
         <div class="signup__logo mt-1">
-            <AppIcon :file="PinterestLogo" :fontSize="'2em'" :alt="'Pinterest Brand Logo'"></AppIcon>
+            <AppIcon :file="PinterestLogo" :fontSize="'2em'" :altText="'Pinterest Brand Logo'"></AppIcon>
         </div>
         <h2 class="signup__heading mt-quarter">{{ $t('signup.title') }}</h2>
         <p class="signup__text">{{ $t('signup.subtitle') }}</p>

@@ -1,6 +1,6 @@
 <template>
     <footer class="footer">
-        <nav class="nav">
+        <nav class="nav" aria-label="Footer Navigation">
             <ul class="footer__links">
                 <li class="footer__link--desktop">
                     <a class="footer__link " href="#">Terms of Service</a>

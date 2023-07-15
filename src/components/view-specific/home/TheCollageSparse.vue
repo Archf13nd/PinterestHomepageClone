@@ -1,5 +1,5 @@
 <template>
-    <nav class="collage-sparse">
+    <nav class="collage-sparse" aria-label="Unique Ideas Navigation">
         <a class="collage-sparse__img collage-sparse__img--1 collage-sparse__img--large">
             <span>{{ $t("save-ideas.image-1") }}</span>
         </a>

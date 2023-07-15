@@ -80,7 +80,7 @@ import AppBtnRound from "../components/Base/AppButtonRound.vue"
         :style="{ 'height': pageHeight + 'px' }">
         <h2 class="section-5__header">{{ $t("signup.heading") }}</h2>
         <signupForm class="section-5__signup-form"></signupForm>
-        <AppBtnRound @click="changeCurrentSection(-1)" :background-color="'#9C0343'"></AppBtnRound>
+        <AppBtnRound @click="changeCurrentSection(-1)" :background-color="'#9C0343'" :text="'Back to top'"></AppBtnRound>
         <TheGalleryDesktop></TheGalleryDesktop>
         <TheFooter></TheFooter>
       </section>
@@ -236,6 +236,7 @@ export default {
     font-size: 3.75rem;
     font-weight: 700;
     line-height: 1;
+    color: inherit;
 
     @media (max-width: $bp-tablet-portrait) {
       font-size: 1.75rem;
@@ -253,7 +254,8 @@ export default {
 
   &__cta {
     padding: .8rem;
-    background: #000;
+    background: var(--lv-text-col);
+    color: var(--lv-background-col);
     width: 6rem;
     border-radius: 2rem;
     font-weight: 700;
@@ -274,7 +276,11 @@ export default {
 }
 
 .section-2 {
-  background: var(--c-bg-yellow);
+  --lv-background-col: var(--c-bg-yellow);
+  --lv-text-col: var(--c-text-red-1);
+
+  color: var(--lv-text-col);
+  background: var(--lv-background-col);
   font-size: 1rem;
 
   @media (max-width: $bp-tablet-portrait) {
@@ -301,10 +307,21 @@ export default {
     margin: 0 auto;
     align-self: center;
   }
+
+  & .section__text {
+    &__heading {
+      color: var(--c-text-red-1);
+
+    }
+  }
 }
 
 .section-3 {
-  background: var(--c-bg-cyan);
+  --lv-background-col: var(--c-bg-cyan);
+  --lv-text-col: var(--c-text-green);
+
+  color: var(--lv-text-col);
+  background: var(--lv-background-col);
 
   @media (max-width: $bp-tablet-portrait) {
     font-size: .5rem;
@@ -329,7 +346,11 @@ export default {
 }
 
 .section-4 {
-  background: var(--c-bg-pink);
+  --lv-background-col: var(--c-bg-pink);
+  --lv-text-col: var(--c-text-red-1);
+
+  color: var(--lv-text-col);
+  background: var(--lv-background-col);
 
   @media (max-width: $bp-tablet-portrait) {
     font-size: .5rem;

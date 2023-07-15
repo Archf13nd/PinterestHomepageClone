@@ -21,13 +21,17 @@
   --c-bg-cyan: #dafff6;
   --c-bg-pink: #ffe2eb;
 
+  --c-text-red-1: #c31952;
+  --c-text-red-2: #c32f00;
+  --c-text-green: #006b6c;
+
   --c-divider-light-1: #c2c2c2;
   --c-divider-light-2: #a5a5a5;
   --c-divider-dark-1: rgba(84, 84, 84, 0.65);
   --c-divider-dark-2: rgba(84, 84, 84, 0.48);
 
   --c-text-light-2: rgba(60, 60, 60, 0.66);
-  --c-text-light-fade: #8f8f8f;
+  --c-text-light-fade: #767676;
 
   --c-text-cyan: #006b6c;
 

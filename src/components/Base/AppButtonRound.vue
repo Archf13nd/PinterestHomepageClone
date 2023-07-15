@@ -2,12 +2,14 @@
 import CaretDown from "../../assets/icons/caret-down.svg"
 
 defineProps({
-    backgroundColor: String
+    backgroundColor: String,
+    text: String,
 }) 
 </script>
 
 <template>
     <button :style="{ 'background-color': backgroundColor || '#fff' }" class="btn-round-caret" v-icon="CaretDown">
+        <div class="btn-round-caret__description">{{ text }}</div>
     </button>
 </template>
 
@@ -23,6 +25,11 @@ defineProps({
     align-items: center;
     z-index: 100;
     font-size: 1.5rem;
+
+    &__description {
+        font-size: 0;
+    }
+
 
 
 }
