@@ -1,9 +1,13 @@
 <template>
     <div class="gallery-desktop">
-        <div v-for="i in 7" :key="i" class="gallery-desktop__1x3">
-            <div v-for="j in 3" :key="j" class="gallery-desktop__img" :class="{ 'displace': i === 3 }">
-                <img :srcset="`${imagesW236[i * j - 1]} 236w, ${imagesW472[i - 1]} 472w`"
+        <div v-for="i in 7" :key="i" class="gallery-desktop__1x3" :style="{ 'margin-top': calcDisplacement(i) }">
+            <div v-for="j in 3" :key="j" class="gallery-desktop__img">
+                <img :srcset="`${imagesW236[i * 3 - j]} 236w, ${imagesW472[i - 1]} 472w`"
                     sizes="(max-width: 1920px) 236px, 472px" alt="">
+            </div>
+            <div v-if="((i === 3 || i === 5))" class="gallery-desktop__img">
+                <img :srcset="`${imagesW236[i]} 236w, ${imagesW472[i - 1]} 472w`" sizes="(max-width: 1920px) 236px, 472px"
+                    alt="">
             </div>
         </div>
     </div>
@@ -14,7 +18,23 @@ export default {
     data() {
         return {
             imagesW236: [],
-            imagesW472: []
+            imagesW472: [],
+            displacementKeys: {
+                1: '0rem',
+                2: '-8rem',
+                3: '-15rem',
+                4: '-2rem',
+                5: '-15rem',
+                6: '-8rem',
+                7: '0rem'
+
+
+            }
+        }
+    },
+    methods: {
+        calcDisplacement(i) {
+            return this.displacementKeys[i]
         }
     },
     created() {
@@ -31,10 +51,6 @@ export default {
 </script>
 
 <style scoped>
-.displace {
-    margin-top: 5rem;
-}
-
 .gallery-desktop {
     width: 95%;
     margin-left: 2.5%;
