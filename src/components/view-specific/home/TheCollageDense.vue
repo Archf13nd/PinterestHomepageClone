@@ -1,13 +1,31 @@
 <script setup>
 import SearchIcon from "@/assets/icons/search.svg"
+const imgDirPath = '/images/collage-dense'
+
 </script>
 
 <template>
     <div class="collage-dense">
-        <div class="collage-dense__img-main"></div>
-        <div class="collage-dense__img-bg collage-dense__img-bg--1"></div>
-        <div class="collage-dense__img-bg collage-dense__img-bg--2"></div>
-        <div class="collage-dense__img-bg collage-dense__img-bg--3"></div>
+        <div class="collage-dense__img-bg collage-dense__img-bg--main">
+            <img :srcset="`${imgDirPath}/cake@w149.jpg 149w, ${imgDirPath}/cake@w334.jpg 334w,${imgDirPath}/cake@w596.jpg 596w`"
+                :src="`${imgDirPath}/cake@w298.jpg`" sizes="(max-width: 400px) 149px ,(max-width: 1920px) 298px, 596px"
+                alt="A large pink cake">
+        </div>
+        <div class="collage-dense__img-bg collage-dense__img-bg--1">
+            <img :srcset="`${imgDirPath}/cake-pink@w105.jpg 105w, ${imgDirPath}/cake-pink@w210.jpg 210w,${imgDirPath}/cake-pink@w420.jpg 420w`"
+                :src="`${imgDirPath}/cake-pink@w210.jpg`" sizes="(max-width: 400px) 105px ,(max-width: 1920px) 210px, 420px"
+                alt="A large pink cake">
+        </div>
+        <div class="collage-dense__img-bg collage-dense__img-bg--2">
+            <img :srcset="`${imgDirPath}/cake-frosting@w105.jpg 105w,${imgDirPath}/cake-frosting@w210.jpg 210w,${imgDirPath}/cake-frosting@w420.jpg 420w`"
+                :src="`${imgDirPath}/cake-frosting@w210.jpg`"
+                sizes="(max-width: 400px) 105px ,(max-width: 1920px) 210px, 420px" alt="A large pink cake">
+        </div>
+        <div class="collage-dense__img-bg collage-dense__img-bg--3">
+            <img :srcset="`${imgDirPath}/cake-rasberry@w105.jpg 105w,${imgDirPath}/cake-rasberry@w210.jpg 210w,${imgDirPath}/cake-rasberry@w420.jpg 420w`"
+                :src="`${imgDirPath}/cake-rasberry@w210.jpg`"
+                sizes="(max-width: 400px) 105px ,(max-width: 1920px) 210px, 420px" alt="A large pink cake">
+        </div>
         <div class="collage-dense__cta">
             <div v-icon="SearchIcon"> {{ $t("ideas.search-text") }} </div>
         </div>
@@ -16,8 +34,7 @@ import SearchIcon from "@/assets/icons/search.svg"
 
 <style scoped>
 .collage-dense {
-    /* DEV */
-    border: 2px solid green;
+
     height: 40em;
     width: 40em;
     display: flex;
@@ -26,13 +43,7 @@ import SearchIcon from "@/assets/icons/search.svg"
     position: relative;
 
 
-    &__img-main {
-        height: 80%;
-        width: 50%;
-        background: #000;
-        border-radius: 3rem;
-        z-index: 10;
-    }
+
 
     &__cta {
         width: 60%;
@@ -51,11 +62,26 @@ import SearchIcon from "@/assets/icons/search.svg"
     &__img-bg {
         border-radius: 3rem;
 
+        & img {
+            height: 100%;
+            object-fit: cover;
+            width: 100%;
+            border-radius: inherit;
+        }
+
+        &--main {
+            height: 28.5rem;
+            width: 18.625rem;
+
+            border-radius: 3rem;
+            z-index: 10;
+        }
+
         &--1 {
             height: 40%;
             width: 30%;
             position: absolute;
-            background: #222b20;
+
             top: 0%;
             left: 52%;
         }
@@ -64,7 +90,7 @@ import SearchIcon from "@/assets/icons/search.svg"
             height: 40%;
             width: 30%;
             position: absolute;
-            background: #222b20;
+
             top: 35%;
             left: 15%;
         }
@@ -73,7 +99,7 @@ import SearchIcon from "@/assets/icons/search.svg"
             height: 40%;
             width: 30%;
             position: absolute;
-            background: #222b20;
+
             top: 60%;
             left: 55%;
         }

@@ -80,7 +80,8 @@ import AppBtnRound from "../components/Base/AppButtonRound.vue"
         :style="{ 'height': pageHeight + 'px' }">
         <h2 class="section-5__header">{{ $t("signup.heading") }}</h2>
         <signupForm class="section-5__signup-form"></signupForm>
-        <AppBtnRound @click="changeCurrentSection(-1)" :background-color="'#9C0343'" :text="'Back to top'"></AppBtnRound>
+        <AppBtnRound @click="changeCurrentSection(-100)" :background-color="'#9C0343'" :text="'Back to top'">
+        </AppBtnRound>
         <TheGalleryDesktop></TheGalleryDesktop>
         <TheFooter></TheFooter>
       </section>
@@ -112,7 +113,9 @@ export default {
   },
   methods: {
     changeCurrentSection(num) {
-
+      if (this.currentSection + num < 0) {
+        this.currentSection = 1
+      }
       if (this.currentSection <= 1 && num < 0) {
         return
       }
@@ -253,6 +256,7 @@ export default {
 
 
   &__cta {
+
     padding: .8rem;
     background: var(--lv-text-col);
     color: var(--lv-background-col);
