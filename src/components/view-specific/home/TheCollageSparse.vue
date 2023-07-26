@@ -1,37 +1,57 @@
 <script setup>
 const imgDirPath = '/images/collage-sparse'
+
+// Images
+
+import image1Small from "/public/images/collage-sparse/cacti@w210.jpg"
+import image1Medium from "/public/images/collage-sparse/cacti@w420.jpg"
+import image1Large from "/public/images/collage-sparse/cacti@w840.jpg"
+
+import image2Small from "/public/images/collage-sparse/ladybugs@w118.jpg"
+import image2Medium from "/public/images/collage-sparse/ladybugs@w236.jpg"
+import image2Large from "/public/images/collage-sparse/ladybugs@w472.jpg"
+
+import image3Small from "/public/images/collage-sparse/blush@w87.jpg"
+import image3Medium from "/public/images/collage-sparse/blush@w174.jpg"
+import image3Large from "/public/images/collage-sparse/blush@w348.jpg"
+
+import image4Small from "/public/images/collage-sparse/desk-setup@w118.jpg"
+import image4Medium from "/public/images/collage-sparse/desk-setup@w236.jpg"
+import image4Large from "/public/images/collage-sparse/desk-setup@w472.jpg"
+
+import image5Small from "/public/images/collage-sparse/moth@w118.jpg"
+import image5Medium from "/public/images/collage-sparse/moth@w236.jpg"
+import image5Large from "/public/images/collage-sparse/moth@w472.jpg"
 </script>
 
 <template>
     <nav class="collage-sparse" aria-label="Unique Ideas Navigation">
         <a href="#" class="collage-sparse__img collage-sparse__img--1 collage-sparse__img--large">
-            <img :srcset="`${imgDirPath}/cacti@w210.jpg 210w,${imgDirPath}/cacti@w420.jpg 420w, ${imgDirPath}/cacti@w840.jpg 840w`"
-                :src="`${imgDirPath}/cacti@w420.jpg`" sizes="(max-width: 400px) 210px ,(max-width: 1920px) 420px, 840px"
-                alt="Cacti in pots and bowls indoors.">
+            <img :srcset="`${image1Small} 210w,${image1Medium} 420w, ${image1Large} 840w`" :src="`${image1Medium}`"
+                sizes="(max-width: 400px) 210px ,(max-width: 1920px) 420px, 840px" alt="Cacti in pots and bowls indoors.">
             <span>{{ $t("save-ideas.image-1") }}</span>
         </a>
         <a href="#" class="collage-sparse__img collage-sparse__img--2">
-            <img :srcset="`${imgDirPath}/ladybugs@w118.jpg 118w,${imgDirPath}/ladybugs@w236.jpg 236w, ${imgDirPath}/ladybugs@w472.jpg 472w`"
-                :src="`${imgDirPath}/ladybugs@w236.jpg`" sizes="(max-width: 400px) 118px ,(max-width: 1920px) 236px, 472px"
+            <img :srcset="`${image2Small} 118w,${image2Medium} 236w, ${image2Large} 472w`" :src="`${image2Medium}`"
+                sizes="(max-width: 400px) 118px ,(max-width: 1920px) 236px, 472px"
                 alt="Macro photograph of two ladybugs on a small leaf.">
             <span>{{ $t("save-ideas.image-2") }}</span>
         </a>
         <a href="#" class="collage-sparse__img collage-sparse__img--3">
-            <img :srcset="`${imgDirPath}/blush@w87.jpg 87w,${imgDirPath}/blush@w174.jpg 174w, ${imgDirPath}/blush@w348.jpg 348w`"
-                sizes="(max-width: 400px) 87px ,(max-width: 1920px) 174px, 348px" :src="`${imgDirPath}/blush@w174.jpg`"
+            <img :srcset="`${image3Small} 87w,${image3Medium} 174w, ${image3Large} 348w`"
+                sizes="(max-width: 400px) 87px ,(max-width: 1920px) 174px, 348px" :src="`${image3Medium}`"
                 alt="Top down view of a tray of makeup blush.">
             <span>{{ $t("save-ideas.image-3") }}</span>
         </a>
         <a href="#" class="collage-sparse__img collage-sparse__img--4">
-            <img :srcset="`${imgDirPath}/desk-setup@w118.jpg 118w,${imgDirPath}/desk-setup@w236.jpg 236w, ${imgDirPath}/desk-setup@w472.jpg 472w`"
-                sizes="(max-width: 400px) 118px ,(max-width: 1920px) 236px, 472px"
-                :src="`${imgDirPath}/desk-setup@w236.jpg`"
+            <img :srcset="`${image4Small} 118w,${image4Medium} 236w, ${image4Large} 472w`"
+                sizes="(max-width: 400px) 118px ,(max-width: 1920px) 236px, 472px" :src="`${image4Medium}`"
                 alt="A desk setup with laptop against a wall with large black and white photos hanging on it.">
             <span>{{ $t("save-ideas.image-4") }}</span>
         </a>
         <a href="#" class="collage-sparse__img collage-sparse__img--5">
-            <img :srcset="`${imgDirPath}/moth@w118.jpg 118w,${imgDirPath}/moth@w236.jpg 236w, ${imgDirPath}/moth@w472.jpg 472w`"
-                sizes="(max-width: 400px) 118px ,(max-width: 1920px) 236px, 472px" :src="`${imgDirPath}/moth@w236.jpg`"
+            <img :srcset="`${image5Small} 118w,${image5Medium} 236w, ${image5Large} 472w`"
+                sizes="(max-width: 400px) 118px ,(max-width: 1920px) 236px, 472px" :src="`${image5Medium}`"
                 alt="Colourful artwork of a moth">
             <span>{{ $t("save-ideas.image-5") }}</span>
         </a>

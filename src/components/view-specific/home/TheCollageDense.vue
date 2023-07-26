@@ -1,30 +1,47 @@
 <script setup>
 import SearchIcon from "@/assets/icons/search.svg"
 const imgDirPath = '/images/collage-dense'
+import cakeMainIMGSmall from "/public/images/collage-dense/cake@w149.jpg"
+import cakeMainIMGMedium from "/public/images/collage-dense/cake@w334.jpg"
+import cakeMainIMGLarge from "/public/images/collage-dense/cake@w596.jpg"
+
+import cake2IMGSmall from "/public/images/collage-dense/cake-frosting@w105.jpg"
+import cake2IMGMedium from "/public/images/collage-dense/cake-frosting@w210.jpg"
+import cake2IMGLarge from "/public/images/collage-dense/cake-frosting@w420.jpg"
+
+import cake3IMGSmall from "/public/images/collage-dense/cake-pink@w105.jpg"
+import cake3IMGMedium from "/public/images/collage-dense/cake-pink@w210.jpg"
+import cake3IMGLarge from "/public/images/collage-dense/cake-pink@w420.jpg"
+
+
+import cake4IMGSmall from "/public/images/collage-dense/cake-rasberry@w105.jpg"
+import cake4IMGMedium from "/public/images/collage-dense/cake-rasberry@w210.jpg"
+import cake4IMGLarge from "/public/images/collage-dense/cake-rasberry@w420.jpg"
+
+
+
+
 
 </script>
 
 <template>
     <div class="collage-dense">
         <div class="collage-dense__img-bg collage-dense__img-bg--main">
-            <img :srcset="`${imgDirPath}/cake@w149.jpg 149w, ${imgDirPath}/cake@w334.jpg 334w,${imgDirPath}/cake@w596.jpg 596w`"
-                :src="`${imgDirPath}/cake@w298.jpg`" sizes="(max-width: 400px) 149px ,(max-width: 1920px) 298px, 596px"
-                alt="A large pink cake">
+            <img :srcset="`${cakeMainIMGSmall} 149w, ${cakeMainIMGMedium} 334w,${cakeMainIMGLarge} 596w`"
+                :src="`${cakeMainIMGSmall}`" sizes="(max-width: 400px) 149px ,(max-width: 1920px) 298px, 596px"
+                alt="A large cake with donuts on top and covered in blue icing">
         </div>
         <div class="collage-dense__img-bg collage-dense__img-bg--1">
-            <img :srcset="`${imgDirPath}/cake-pink@w105.jpg 105w, ${imgDirPath}/cake-pink@w210.jpg 210w,${imgDirPath}/cake-pink@w420.jpg 420w`"
-                :src="`${imgDirPath}/cake-pink@w210.jpg`" sizes="(max-width: 400px) 105px ,(max-width: 1920px) 210px, 420px"
-                alt="A large pink cake">
+            <img :srcset="`${cake2IMGSmall} 105w, ${cake2IMGMedium} 210w, ${cake2IMGLarge} 420w`" :src="`${cake2IMGMedium}`"
+                sizes="(max-width: 400px) 105px ,(max-width: 1920px) 210px, 420px" alt="A large pink cake">
         </div>
         <div class="collage-dense__img-bg collage-dense__img-bg--2">
-            <img :srcset="`${imgDirPath}/cake-frosting@w105.jpg 105w,${imgDirPath}/cake-frosting@w210.jpg 210w,${imgDirPath}/cake-frosting@w420.jpg 420w`"
-                :src="`${imgDirPath}/cake-frosting@w210.jpg`"
-                sizes="(max-width: 400px) 105px ,(max-width: 1920px) 210px, 420px" alt="A large pink cake">
+            <img :srcset="`${cake3IMGSmall} 105w, ${cake3IMGMedium} 210w, ${cake3IMGLarge} 420w`" :src="`${cake3IMGMedium}`"
+                sizes="(max-width: 400px) 105px ,(max-width: 1920px) 210px, 420px" alt="A cake with lots of frosting">
         </div>
         <div class="collage-dense__img-bg collage-dense__img-bg--3">
-            <img :srcset="`${imgDirPath}/cake-rasberry@w105.jpg 105w,${imgDirPath}/cake-rasberry@w210.jpg 210w,${imgDirPath}/cake-rasberry@w420.jpg 420w`"
-                :src="`${imgDirPath}/cake-rasberry@w210.jpg`"
-                sizes="(max-width: 400px) 105px ,(max-width: 1920px) 210px, 420px" alt="A large pink cake">
+            <img :srcset="`${cake4IMGSmall} 105w,${cake4IMGMedium} 210w,${cake4IMGLarge} 420w`" :src="`${cake4IMGMedium}`"
+                sizes="(max-width: 400px) 105px ,(max-width: 1920px) 210px, 420px" alt="A cake covered in rasberries">
         </div>
         <div class="collage-dense__cta">
             <div v-icon="SearchIcon"> {{ $t("ideas.search-text") }} </div>

@@ -38,13 +38,13 @@ export default {
         }
     },
     created() {
-        const imagesW236 = import.meta.glob('/images/gallery-signup/w236/\*');
+        const imagesW236 = import.meta.glob('/public/images/gallery-signup/w236/\*', { as: 'url', eager: true });
         for (const file in imagesW236) {
-            this.imagesW236.push(file)
+            this.imagesW236.push(imagesW236[file])
         }
-        const imagesW472 = import.meta.glob('/images/gallery-signup/w472/\*');
+        const imagesW472 = import.meta.glob('/public/images/gallery-signup/w472/\*', { as: 'url', eager: true });
         for (const file in imagesW472) {
-            this.imagesW472.push(file)
+            this.imagesW472.push(imagesW472[file])
         }
     }
 }
