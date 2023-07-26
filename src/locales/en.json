@@ -1,0 +1,86 @@
+{
+  "header": {
+    "about": "About",
+    "business": "Business",
+    "blog": "Blog",
+    "login": "Login",
+    "signup": "Sign up"
+  },
+  "hero": {
+    "header-top": "Get your next",
+    "header-look": "New Look",
+    "header-art": "Digital Art Inspiration",
+    "header-food": "Food Ideas",
+    "header-travel": "Places to Travel"
+  },
+  "banner": {
+    "text": "Here’s how it works"
+  },
+  "mobile-cta": {
+    "welcome-heading": "Welcome to Pinterest",
+    "signup-heading": "Sign up to explore the world's best ideas",
+    "cta-email": "Continue with email",
+    "cta-facebook": "Continue with Facebook",
+    "cta-google": "Continue with Google",
+    "already-member": "Already a member? {0}",
+    "already-member-link": "Log In",
+    "business": "Are you in a business? {0}",
+    "business-link": "Get started here",
+    "legal-text": "By continuing, you agree to Pinterest's {0} and acknowledge that you've read our {1}. {2} ",
+    "tos": "Terms of Service",
+    "privacy-policy": "Privacy Policy",
+    "collection": "Notice at Collection"
+  },
+  "ideas": {
+    "heading": "Search for an idea",
+    "paragraph": "What do you want to try next? Think of something you’re into—like “easy chicken dinner”—and see what you find.",
+    "button": "Explore",
+    "search-text": "Fancy Cakes"
+  },
+  "save-ideas": {
+    "heading": "Save ideas you like",
+    "paragraph": "Collect your favorites so you can get back to them later.",
+    "button": "Explore",
+    "image-1": "Add to your indoor garden",
+    "image-2": "Your next photo",
+    "image-3": "Makeup tips",
+    "image-4": "New workspace",
+    "image-5": "Inspiring art"
+  },
+  "shop": {
+    "heading": " See it, make it, try it, do it",
+    "paragraph": "The best part of Pinterest is discovering new things and ideas from people around the world.",
+    "button": "Explore",
+    "background-phone-title": "Scout the city",
+    "background-phone-subtext": "53.7k followers"
+  },
+  "signup": {
+    "heading": "Sign up to get your ideas",
+    "title": "Welcome to Pinterest",
+    "subtitle": "Find new ideas to try",
+    "email": "Email",
+    "email-placeholder": "Email",
+    "email-error-invalid": "Hmm...that doesn't look like an email address",
+    "email-error-empty": "Don't forget to include an email address",
+    "password": "Password",
+    "password-placeholder": "Create a password",
+    "password-error-empty": "Don't forget to include a password",
+    "password-error-length": "Your password is too short! You need 6+ characters",
+    "password-error-number": "Your password doesn't contain at least one number",
+    "password-error-special": "Your password needs to contain a special character",
+    "birthdate": "Birthdate",
+    "birthdate-error": "You missed a spot. Don't forget to add your birthday.",
+    "birthdate-info": "To help keep Pinterest safe, we now require your birthdate. Your birthdate also helps us provide more personalized recommendations and relevant ads. We don't share this information and it won't be visible on your profile.",
+    "or": "OR",
+    "cta-continue": "Continue",
+    "cta-facebook": "Continue with Facebook",
+    "cta-google": "Continue with Google",
+    "legal-text": "By continuing, you agree to Pinterest's {0} and acknowledge that you've read our {1}. {2} ",
+    "tos": "Terms of Service",
+    "privacy-policy": "Privacy Policy",
+    "collection": "Notice at Collection",
+    "already-member": "Already a member? {0}",
+    "already-member-link": "Log In",
+    "business-account": "Sign up for a business account"
+  }
+}

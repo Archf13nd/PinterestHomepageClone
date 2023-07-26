@@ -1,0 +1,69 @@
+/* color palette from <https://github.com/vuejs/theme> */
+:root {
+  --c-white: #ffffff;
+  --c-white-soft: #f8f8f8;
+  --c-white-mute: #f2f2f2;
+
+  --c-black: #181818;
+  --c-black-soft: #222222;
+  --c-black-mute: #282828;
+
+  --c-gray: #efefef;
+  --c-gray-hover: #e2e2e2;
+
+  --c-danger: red;
+
+  --c-company-pinterest: #e60023;
+  --c-company-pinterest-hover: #ad081b;
+  --c-company-facebook: #1877f2;
+
+  --c-bg-yellow: #fffd92;
+  --c-bg-cyan: #dafff6;
+  --c-bg-pink: #ffe2eb;
+
+  --c-text-red-1: #c31952;
+  --c-text-red-2: #c32f00;
+  --c-text-green: #006b6c;
+
+  --c-divider-light-1: #c2c2c2;
+  --c-divider-light-2: #a5a5a5;
+  --c-divider-dark-1: rgba(84, 84, 84, 0.65);
+  --c-divider-dark-2: rgba(84, 84, 84, 0.48);
+
+  --c-text-light-2: rgba(60, 60, 60, 0.66);
+  --c-text-light-fade: #767676;
+
+  --c-text-cyan: #006b6c;
+
+  --c-text-dark-1: var(--vt-c-white);
+  --c-text-dark-2: rgba(235, 235, 235, 0.64);
+}
+
+/* semantic color variables for this project */
+:root {
+  --color-background: var(--c-white);
+  --color-background-soft: var(--c-white-soft);
+  --color-background-mute: var(--c-white-mute);
+
+  --color-border: var(--c-divider-light-1);
+  --color-border-hover: var(--c-divider-light-2);
+
+  --color-heading: var(--c-text-light-1);
+  --color-text: var(--c-text-light-1);
+
+  --color-danger: var(--c-danger);
+}
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: var(--c-black);
+    --color-background-soft: var(--c-black-soft);
+    --color-background-mute: var(--c-black-mute);
+
+    --color-border: var(--c-divider-dark-2);
+    --color-border-hover: var(--c-divider-dark-1);
+
+    --color-heading: var(--vt-c-text-dark-1);
+    --color-text: var(--vt-c-text-dark-2);
+  }
+} */
