@@ -66,41 +66,41 @@ export default {
     async created() {
         console.log('created')
 
-        const digitalArtFilesHD = import.meta.glob(`/public/images/gallery_desktop/digital-art/@H350/*`)
+        const digitalArtFilesHD = import.meta.glob(`/images/gallery_desktop/digital-art/@H350/*`)
         for (const file in digitalArtFilesHD) {
             this.imageFiles['digital-art'].hd.push(file)
         }
 
-        const digitalArtFiles4K = import.meta.glob(`/public/images/gallery_desktop/digital-art/@H700/*`)
+        const digitalArtFiles4K = import.meta.glob(`/images/gallery_desktop/digital-art/@H700/*`)
         for (const file in digitalArtFiles4K) {
             this.imageFiles['digital-art']['4k'].push(file)
         }
 
-        const newLookFilesHD = import.meta.glob(`/public/images/gallery_desktop/new-look/@H350/*`)
+        const newLookFilesHD = import.meta.glob(`/images/gallery_desktop/new-look/@H350/*`)
         for (const file in newLookFilesHD) {
             this.imageFiles['new-look'].hd.push(file)
         }
 
-        const newLookFiles4K = import.meta.glob(`/public/images/gallery_desktop/new-look/@H700/*`)
+        const newLookFiles4K = import.meta.glob(`/images/gallery_desktop/new-look/@H700/*`)
         for (const file in newLookFiles4K) {
             this.imageFiles['new-look']['4k'].push(file)
         }
 
-        const foodIdeasFilesHD = import.meta.glob(`/public/images/gallery_desktop/food-ideas/@H350/*`)
+        const foodIdeasFilesHD = import.meta.glob(`/images/gallery_desktop/food-ideas/@H350/*`)
         for (const file in foodIdeasFilesHD) {
             this.imageFiles['food-ideas'].hd.push(file)
         }
 
-        const foodIdeasFiles4K = import.meta.glob(`/public/images/gallery_desktop/food-ideas/@H700/*`)
+        const foodIdeasFiles4K = import.meta.glob(`/images/gallery_desktop/food-ideas/@H700/*`)
         for (const file in foodIdeasFiles4K) {
             this.imageFiles['food-ideas']['4k'].push(file)
         }
-        const travelFilesHD = import.meta.glob(`/public/images/gallery_desktop/travel/@H350/*`)
+        const travelFilesHD = import.meta.glob(`/images/gallery_desktop/travel/@H350/*`)
         for (const file in travelFilesHD) {
             this.imageFiles['travel'].hd.push(file)
         }
 
-        const travelFiles4K = import.meta.glob(`/public/images/gallery_desktop/travel/@H700/*`)
+        const travelFiles4K = import.meta.glob(`/images/gallery_desktop/travel/@H700/*`)
         for (const file in travelFiles4K) {
             this.imageFiles['travel']['4k'].push(file)
         }

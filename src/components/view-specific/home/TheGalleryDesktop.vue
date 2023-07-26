@@ -38,11 +38,11 @@ export default {
         }
     },
     created() {
-        const imagesW236 = import.meta.glob('/public/images/gallery-signup/w236/\*');
+        const imagesW236 = import.meta.glob('/images/gallery-signup/w236/\*');
         for (const file in imagesW236) {
             this.imagesW236.push(file)
         }
-        const imagesW472 = import.meta.glob('/public/images/gallery-signup/w472/\*');
+        const imagesW472 = import.meta.glob('/images/gallery-signup/w472/\*');
         for (const file in imagesW472) {
             this.imagesW472.push(file)
         }

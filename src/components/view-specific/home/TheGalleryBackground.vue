@@ -26,15 +26,15 @@ export default {
         }
     },
     created() {
-        const galleryFilesW110 = import.meta.glob('/public/images/gallery-mobile-hero/w110/\*');
+        const galleryFilesW110 = import.meta.glob('/images/gallery-mobile-hero/w110/\*');
         for (const file in galleryFilesW110) {
             this.imagesW110.push(file)
         }
-        const galleryFilesW220 = import.meta.glob("/public/images/gallery-mobile-hero/w220/\*")
+        const galleryFilesW220 = import.meta.glob("/images/gallery-mobile-hero/w220/\*")
         for (const file in galleryFilesW220) {
             this.imagesW220.push(file)
         }
-        const galleryFilesW330 = import.meta.glob("/public/images/gallery-mobile-hero/w330/\*")
+        const galleryFilesW330 = import.meta.glob("/images/gallery-mobile-hero/w330/\*")
         for (const file in galleryFilesW330) {
             this.imagesW330.push(file)
         }
