@@ -1,7 +1,6 @@
 
 <script setup>
 defineProps({
-    isGalleryChanging: Boolean,
     currentFrame: Number
 })
 </script>
@@ -11,8 +10,8 @@ defineProps({
         <div class="gallery__wrapper">
             <div class="gallery__overlay"></div>
             <!-- Renders 7 1x2 grids using responsive image loading with srcset and animates transition when new gallery is loaded in -->
-            <div class="gallery__1x2" :class="[`gallery__1x2--${i}`, { 'render-1x2': isGalleryChanging }]"
-                :style="{ 'animation-delay': `${i * 0.09}s` }" v-for="i in  7 " :key="i">
+            <div class="gallery__1x2" :class="[`gallery__1x2--${i}`, { 'render-1x2': render }]"
+                :style="{ 'animation-delay': `${i * .20}s` }" v-for="i in  7 " :key="i">
                 <div class="gallery__bg-img" :class="`gallery__bg-img--${i}`">
                     <img loading="lazy"
                         :srcset="`${imageFiles[currentTheme]['hd'][i - 1]} 240w, ${imageFiles[currentTheme]['4k'][i - 1]} 480w`"
@@ -56,18 +55,17 @@ export default {
             imageURLs: [],
             renderSpeed: 350,
             interval: null,
-            currentTheme: 'new-look'
+            currentTheme: 'new-look',
+            render: false
         }
     },
     watch: {
         currentFrame: function (currentFrame) {
+            this.render = true
             setTimeout(() => {
-
-
                 const frame = currentFrame
                 if (frame === 0) {
                     this.currentTheme = 'new-look'
-                    console.log(this.currentTheme)
                 } else if (frame === 1) {
                     this.currentTheme = 'digital-art'
                 } else if (frame === 2) {
@@ -75,14 +73,13 @@ export default {
                 } else {
                     this.currentTheme = 'travel'
                 }
-            }, 1250);
+            }, 2300);
+            setTimeout(() => {
+                this.render = false
+            }, 4000)
         },
     },
-    methods: {
-        calcAnimationDelay(index) {
-            return (1 / 5) * index + 's'
-        }
-    },
+
     created() {
 
         const digitalArtFilesHD = import.meta.glob(`@/assets/images/gallery_desktop/digital-art/@H350/*`, { as: 'url', eager: true })
@@ -196,7 +193,7 @@ export default {
 
 
 .render-1x2 {
-    animation: 2s forwards slideUpFade;
+    animation: 3s forwards slideUpFade;
 
 }
 
@@ -209,13 +206,13 @@ export default {
 
     }
 
-    50% {
+    30% {
         transform: translateY(-2rem);
         opacity: 0%;
         gap: .5rem;
     }
 
-    60% {
+    70% {
         transform: translateY(2rem);
         opacity: 0%;
         gap: .5rem;

@@ -20,7 +20,7 @@
         <BtnRow @btnChange="changeSlide" :currentBtn="currentFrame" :currentColor="colors[currentFrame]"></BtnRow>
         <div class="hero-gallery-container">
             <div class="overlay"></div>
-            <Gallery :isGalleryChanging="updateGallery" :currentFrame=currentFrame></Gallery>
+            <Gallery :currentFrame=currentFrame></Gallery>
         </div>
         <Banner @bannerClicked="handleInteraction" :backgroundColor="colors[currentFrame]"></Banner>
     </div>
@@ -28,7 +28,6 @@
 
 <script>
 import { defineAsyncComponent } from 'vue'
-import timer from "@/assets/js/timer.js"
 
 const BtnRow = defineAsyncComponent(() => import("@/components/Base/AppBtnRow.vue"))
 const Gallery = defineAsyncComponent(() => import("./TheGalleryValleyAnimated_7x2.vue"))
@@ -45,16 +44,9 @@ export default {
     data() {
         return {
             // States: done, entering, leaving
-            animationState: 'done',
-            isBeingAnimated: false,
             currentFrame: 0,
-            theTimer: null,
-            updateTitle: false,
-            currentTimings: null,
-            timingCycle1: 0,
-            timingCycle2: 0,
-            timingCycle3: 0,
-            colors: ['#c28B00', '#61867b', '#0076d3', '#407a57']
+            colors: ['#c28B00', '#61867b', '#0076d3', '#407a57'],
+            time2Change: 6000
         }
     },
     methods: {
@@ -66,64 +58,24 @@ export default {
                 this.currentFrame = 0
             }
         },
-        changeSlide(e) {
-            if (e === 0) {
-                this.currentFrame = 3
-            } else {
-                this.currentFrame = e - 1
-            }
-            this.currentTimings['timing-1'] = 0
-            this.currentTimings['timing-2'] = 0
-
-            setTimeout(() => {
-                this.currentTimings['timing-1'] = 1
-                this.currentTimings['timing-2'] = 1
-            }, 100);
-        },
         handleInteraction() {
             this.$emit('bannerClicked')
-        }
-    },
-    watch: {
-        'currentTimings.timing-1': function () {
-            if (this.currentTimings['timing-1'] % 2) {
-
-                this.loadNextTitle()
-                this.updateTitle = true
-            } else {
-                this.updateTitle = false
-
-            }
         },
-
-    },
-    computed: {
-        updateGallery() {
-            if (this.currentTimings['timing-2'] % 2) {
-                return true
-            } else {
-                return false
-            }
+        changeSlide(e) {
+            clearInterval(this.interval)
+            this.currentFrame = e
+            this.interval = this.createInterval()
+        },
+        createInterval() {
+            return setInterval(() => {
+                this.loadNextTitle()
+            }, this.time2Change);
         }
     },
     created() {
-        this.currentTimings = {
-            completeCycle: 2800
-        }
-        this.theTimer = timer(this.currentTimings, [
-            {
-                name: 'timing-1',
-                timing: 250
-            },
-            {
-                name: 'timing-2',
-                timing: 300
-            },
-            {
-                name: 'timing-3',
-                timing: 100
-            }
-        ])
+        this.interval = this.createInterval
+
+
     }
 }
 </script>
