@@ -7,7 +7,7 @@ import { visualizer } from 'rollup-plugin-visualizer'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  // base: '/PinterestHomepageClone',
+  base: '/PinterestHomepageClone',
   publicDir: '/public',
   test: {
     globals: true

@@ -1,13 +1,31 @@
+<script setup>
+import bp from "../../../../breakpoints.config"
+
+import phoneIMGSmall from "/public/images/shop/architecture@w120.jpg"
+import phoneIMGMedium from "/public/images/shop/architecture@w220.jpg"
+import phoneIMGLarge from "/public/images/shop/architecture@w440.jpg"
+
+import profileIMGMedium from "/public/images/shop/portrait@w80.jpg"
+import profileIMGLarge from "/public/images/shop/portrait@w160.jpg"
+</script>
+
+
+
 <template>
     <div class="background-with-mobile">
         <a href="#" class="background-with-mobile__mobile">
             <div class="background-with-mobile__img">
-                <img src="https://cdn.pixabay.com/photo/2023/03/17/02/42/architecture-7857832_640.jpg" alt="">
+                <img :srcset="`${phoneIMGSmall} 120w,${phoneIMGMedium} 220w,${phoneIMGLarge} 440w`"
+                    :sizes="` (max-width: ${bp['bp-mobile']} 120px,(max-width: ${bp['bp-desktop']} 220px, 440px)`"
+                    :src="`${phoneIMGMedium}`"
+                    alt="European city with crean coloured stone architecture and cathedral of same stone in background">
             </div>
             <p class="background-with-mobile__text">{{ $t("shop.background-phone-title") }}<br><span>{{
                 $t("shop.background-phone-subtext") }}</span></p>
             <div class="background-with-mobile__circle-img">
-                <img src="https://cdn.pixabay.com/photo/2018/04/05/09/32/portrait-3292287_640.jpg" alt="">
+                <img :srcset="`${profileIMGMedium} 80w,${profileIMGLarge} 160w`"
+                    :sizes="`(max-width: ${bp['bp-mobile']}) 80px, 160px`" :src="`${profileIMGMedium}`"
+                    alt="Portrait of a woman in a red dress">
             </div>
 
         </a>
@@ -21,8 +39,23 @@
     width: 100%;
     position: relative;
     flex-shrink: 0;
-    background: url('https://images.pexels.com/photos/1858175/pexels-photo-1858175.jpeg?auto=compress&cs=tinysrgb&w=1600');
     background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+
+    @media (max-width: $bp-desktop) and (max-resolution: 250dpi) {
+        background-image: url("/public/images/shop/woman-smiling@w960.jpg");
+    }
+
+    @media (max-width: $bp-mobile) and (max-resolution: 150dpi) {
+        background-image: url("/public/images/shop/woman-smiling@w480.jpg");
+    }
+
+    @media (min-width: $bp-desktop),
+    (min-resolution: 250dpi) {
+        background-image: url("/public/images/shop/woman-smiling@w1920.jpg");
+    }
 
     &__mobile {
         position: absolute;

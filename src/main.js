@@ -3,7 +3,7 @@ import './assets/css/main.css'
 import breakpointsPlugin from './_breakpoints_plugin.js'
 import iconDirective from './directives/icon.js'
 import i18n from './includes/i18n'
-import { registerSW } from 'virtual:pwa-register'
+// import { registerSW } from 'virtual:pwa-register'
 
 import { createApp } from 'vue'
 import App from './App.vue'
