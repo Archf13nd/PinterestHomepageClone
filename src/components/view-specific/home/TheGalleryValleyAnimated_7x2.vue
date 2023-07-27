@@ -64,7 +64,6 @@ export default {
         }
     },
     created() {
-        console.log('what is going on')
 
         const digitalArtFilesHD = import.meta.glob(`@/assets/images/gallery_desktop/digital-art/@H350/*`, { as: 'url', eager: true })
         for (const file in digitalArtFilesHD) {
@@ -105,8 +104,6 @@ export default {
         for (const file in travelFiles4K) {
             this.imageFiles['travel']['4k'].push(file)
         }
-
-        console.log(this.imageFiles)
 
     }
 }

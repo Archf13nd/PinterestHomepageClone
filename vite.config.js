@@ -13,29 +13,32 @@ export default defineConfig({
   test: {
     globals: true
   },
+  build: {
+    sourcemap: true
+  },
   plugins: [
     vue(),
     imagetools(),
-    VitePWA({
-      registerType: 'autoUpdate',
-      devOptions: {
-        enabled: true
-      },
-      manifest: {
-        // name: 'Pinterest Clone',
-        theme: '#e60023',
-        icons: [
-          {
-            src: 'src/assets/logos/badgeRGB.png',
-            sizes: '192x192',
-            type: 'image/png'
-          }
-        ]
-      },
-      workbox: {
-        globPatterns: ['**/*.{js,css,html,png,jpg,svg}']
-      }
-    }),
+    // VitePWA({
+    //   registerType: 'autoUpdate',
+    //   devOptions: {
+    //     enabled: true
+    //   },
+    //   manifest: {
+    //     // name: 'Pinterest Clone',
+    //     theme: '#e60023',
+    //     icons: [
+    //       {
+    //         src: 'src/assets/logos/badgeRGB.png',
+    //         sizes: '192x192',
+    //         type: 'image/png'
+    //       }
+    //     ]
+    //   },
+    //   workbox: {
+    //     globPatterns: ['**/*.{js,css,html,png,jpg,svg}']
+    //   }
+    // }),
     visualizer({ open: true })
   ],
   css: {
