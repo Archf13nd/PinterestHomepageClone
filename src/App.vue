@@ -23,13 +23,11 @@ export default {
     handleScroll(e) {
       this.scrollEvent = e
     },
-    handleResize() {
-      console.log('resized')
-    },
+
   },
   created() {
     document.addEventListener('scroll', this.handleScroll)
-    window.addEventListener('resize', this.handleResize)
+
   }
 }
 </script>

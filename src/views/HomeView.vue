@@ -1,15 +1,5 @@
 <script setup>
-import AppHero from "../components/view-specific/home/TheHero.vue"
-import AppHeroMobile from "../components/view-specific/home/TheHeroMobile.vue"
-import signupForm from "../components/view-specific/home/TheSignUpForm.vue"
-import CollageDense from "../components/view-specific/home/TheCollageDense.vue"
-import TheCollageSparse from "../components/view-specific/home/TheCollageSparse.vue"
-import TheBackgroundWithMobile from "../components/view-specific/home/TheBackgroundWithMobile.vue"
-import TheCTAMobile from "../components/view-specific/home/TheCTAMobile.vue"
-import TheFooter from "../components/view-specific/home/TheFooter.vue"
-import TheGalleryDesktop from "../components/view-specific/home/TheGalleryDesktop.vue"
 
-import AppBtnRound from "../components/Base/AppButtonRound.vue"
 
 
 </script>
@@ -19,6 +9,12 @@ import AppBtnRound from "../components/Base/AppButtonRound.vue"
   <div class="scroller" :style="{ 'height': pageHeight * 2 + 'px' }">
   </div>
   <main class="page">
+    <!-- <div class="info-warning">
+      <p> I want to make it abundantly clear that this website is an independent recreation of Pinterest's property and is
+        not
+        associated, endorsed, or affiliated with Pinterest in any manner. It is created soley for educational purposes. If
+        there is any problem please message me at ideaswrittenonleaves@gmail.com</p>
+    </div> -->
     <div class="page__window" :style="{ 'top': getPosFromTop + 'px' }">
       <section class="section section-1" id="hero" :style="{ 'height': pageHeight + 'px' }">
         <AppHeroMobile v-if="pageWidth < 900"></AppHeroMobile>
@@ -26,7 +22,8 @@ import AppBtnRound from "../components/Base/AppButtonRound.vue"
 
       </section>
 
-      <section class="section section-2 splitscreen" id="ideas" :style="{ 'height': pageHeight + 'px' }">
+      <section v-if="renderIdeas" class="section section-2 splitscreen" id="ideas"
+        :style="{ 'height': pageHeight + 'px' }">
         <CollageDense class="section-2__collage"></CollageDense>
         <div class="section-text section-text--collage">
           <h2 class="section-text__heading">
@@ -41,7 +38,7 @@ import AppBtnRound from "../components/Base/AppButtonRound.vue"
         </div>
       </section>
 
-      <section class="section section-3 splitscreen splitscreen__save-ideas" id="save-ideas"
+      <section v-if="renderSaveIdeas" class="section section-3 splitscreen splitscreen__save-ideas" id="save-ideas"
         :style="{ 'height': pageHeight + 'px' }">
         <div class="section-text section-text--collage">
           <h2 class="section-text__heading">
@@ -58,7 +55,8 @@ import AppBtnRound from "../components/Base/AppButtonRound.vue"
 
       </section>
 
-      <section class="section section-4 splitscreen splitscreen__shop" id="shop" :style="{ 'height': pageHeight + 'px' }">
+      <section v-if="renderShop" class="section section-4 splitscreen splitscreen__shop" id="shop"
+        :style="{ 'height': pageHeight + 'px' }">
         <TheBackgroundWithMobile></TheBackgroundWithMobile>
         <div class="section-text section-text--collage">
           <h2 class="section-text__heading">
@@ -73,11 +71,11 @@ import AppBtnRound from "../components/Base/AppButtonRound.vue"
         </div>
       </section>
 
-      <section v-if="maxWidth('bp-tablet-portrait')" class="section section-5" id="signup">
+      <section v-if="maxWidth('bp-tablet-portrait') && renderSignUp" class="section section-5" id="signup">
         <TheCTAMobile></TheCTAMobile>
       </section>
-      <section v-if="!maxWidth('bp-tablet-portrait')" class="section section-5 section-5--desktop splitscreen" id="signup"
-        :style="{ 'height': pageHeight + 'px' }">
+      <section v-if="!maxWidth('bp-tablet-portrait') && renderSignUp"
+        class="section section-5 section-5--desktop splitscreen" id="signup" :style="{ 'height': pageHeight + 'px' }">
         <h2 class="section-5__header">{{ $t("signup.heading") }}</h2>
         <signupForm class="section-5__signup-form"></signupForm>
         <AppBtnRound @click="changeCurrentSection(-100)" :background-color="'#9C0343'" :text="'Back to top'">
@@ -90,8 +88,32 @@ import AppBtnRound from "../components/Base/AppButtonRound.vue"
 </template>
 
 <script>
+const AppHero = () => import("../components/view-specific/home/TheHero.vue")
+const AppHeroMobile = () => import("../components/view-specific/home/TheHeroMobile.vue")
+const signupForm = () => import("../components/view-specific/home/TheSignUpForm.vue")
+const CollageDense = () => import("../components/view-specific/home/TheCollageDense.vue")
+const TheCollageSparse = () => import("../components/view-specific/home/TheCollageSparse.vue")
+const TheBackgroundWithMobile = () => import("../components/view-specific/home/TheBackgroundWithMobile.vue")
+const TheCTAMobile = () => import("../components/view-specific/home/TheCTAMobile.vue")
+const TheFooter = () => import("../components/view-specific/home/TheFooter.vue")
+const TheGalleryDesktop = () => import("../components/view-specific/home/TheGalleryDesktop.vue")
+const AppBtnRound = () => import("../components/Base/AppButtonRound.vue")
+import { defineAsyncComponent } from 'vue'
+
 export default {
   props: ['scrollEvent', 'resizeEvent'],
+  components: {
+    AppHero: defineAsyncComponent(AppHero),
+    AppHeroMobile: defineAsyncComponent(AppHeroMobile),
+    signupForm: defineAsyncComponent(signupForm),
+    CollageDense: defineAsyncComponent(CollageDense),
+    TheCollageSparse: defineAsyncComponent(TheCollageSparse),
+    TheBackgroundWithMobile: defineAsyncComponent(TheBackgroundWithMobile),
+    TheCTAMobile: defineAsyncComponent(TheCTAMobile),
+    TheFooter: defineAsyncComponent(TheFooter),
+    TheGalleryDesktop: defineAsyncComponent(TheGalleryDesktop),
+    AppBtnRound: defineAsyncComponent(AppBtnRound)
+  },
   data() {
     return {
       isMobile: false,
@@ -109,9 +131,32 @@ export default {
         4: 'sign-up'
       },
       currentSection: 1,
+      renderHero: true,
+      renderIdeas: false,
+      renderSaveIdeas: false,
+      renderShop: false,
+      renderSignUp: false
     }
   },
   methods: {
+    renderSections() {
+      switch (this.currentSection) {
+        case 2:
+          this.renderIdeas = true
+          break;
+        case 3:
+          this.renderSaveIdeas = true
+          break;
+        case 4:
+          this.renderShop = true
+          break;
+        case 5:
+          this.renderSignUp = true
+          break;
+        default:
+          break;
+      }
+    },
     changeCurrentSection(num) {
       if (this.currentSection + num < 0) {
         this.currentSection = 1
@@ -123,6 +168,7 @@ export default {
         return
       }
       this.currentSection += num
+      this.renderSections()
     },
     allowScrollRead() {
       setTimeout(() => {
@@ -166,15 +212,43 @@ export default {
   created() {
     this.pageHeight = document.documentElement.clientHeight
     this.pageWidth = document.documentElement.clientWidth
+
   },
   mounted() {
     window.scrollTo(0, this.pageHeight / 2)
     this.pageY = window.scrollY
+    window.addEventListener('resize', () => {
+      this.pageHeight = document.documentElement.clientHeight
+      this.pageWidth = document.documentElement.clientWidth
+    })
   }
 }
 </script>
 
 <style>
+.info-warning {
+  position: absolute;
+  width: 100%;
+  top: 0rem;
+  background: yellow;
+  padding: 1rem;
+  z-index: 1000;
+
+  &>p {
+    width: 80%;
+    margin: 0 auto;
+    font-size: 1.2rem;
+    font-weight: 700;
+    font-family: sans-serif;
+
+    @media (max-width: 800px) {
+      font-size: .8rem;
+    }
+
+  }
+
+}
+
 .page {
   position: fixed;
   top: 0;
@@ -302,8 +376,13 @@ export default {
   }
 
   &__collage {
+
     margin: 0 auto;
     align-self: center;
+
+    @media screen (max-width: $bp-tablet-portrait) {
+      font-size: .6rem;
+    }
   }
 
   &__text {
@@ -328,7 +407,7 @@ export default {
   background: var(--lv-background-col);
 
   @media (max-width: $bp-tablet-portrait) {
-    font-size: .5rem;
+    font-size: .55rem;
   }
 
   &__splitscreen {

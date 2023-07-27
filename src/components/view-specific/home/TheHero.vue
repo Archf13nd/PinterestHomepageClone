@@ -1,9 +1,5 @@
 <script setup>
-import BtnRow from "@/components/Base/AppBtnRow.vue"
-import Gallery from "./TheGalleryValleyAnimated_7x2.vue";
-import Banner from "./TheBanner.vue"
-import AppHeader from "./TheHeader.vue"
-import timer from "@/assets/js/timer.js"
+
 </script>
 
 <template>
@@ -24,14 +20,28 @@ import timer from "@/assets/js/timer.js"
         <BtnRow @btnChange="changeSlide" :currentBtn="currentFrame" :currentColor="colors[currentFrame]"></BtnRow>
         <div class="hero-gallery-container">
             <div class="overlay"></div>
-            <Gallery :isGalleryChanging="updateGallery"></Gallery>
+            <Gallery :isGalleryChanging="updateGallery" :currentFrame=currentFrame></Gallery>
         </div>
         <Banner @bannerClicked="handleInteraction" :backgroundColor="colors[currentFrame]"></Banner>
     </div>
 </template>
 
 <script>
+import { defineAsyncComponent } from 'vue'
+import timer from "@/assets/js/timer.js"
+
+const BtnRow = defineAsyncComponent(() => import("@/components/Base/AppBtnRow.vue"))
+const Gallery = defineAsyncComponent(() => import("./TheGalleryValleyAnimated_7x2.vue"))
+const Banner = defineAsyncComponent(() => import("./TheBanner.vue"))
+const AppHeader = defineAsyncComponent(() => import("./TheHeader.vue"))
+
 export default {
+    components: {
+        BtnRow,
+        Gallery,
+        Banner,
+        AppHeader,
+    },
     data() {
         return {
             // States: done, entering, leaving
@@ -55,6 +65,7 @@ export default {
             } else {
                 this.currentFrame = 0
             }
+            console.log(this.currentFrame)
         },
         changeSlide(e) {
             if (e === 0) {
@@ -77,13 +88,15 @@ export default {
     watch: {
         'currentTimings.timing-1': function () {
             if (this.currentTimings['timing-1'] % 2) {
+                console.log(this.currentTimings)
                 this.loadNextTitle()
                 this.updateTitle = true
             } else {
                 this.updateTitle = false
 
             }
-        }
+        },
+
     },
     computed: {
         updateGallery() {
@@ -96,7 +109,7 @@ export default {
     },
     created() {
         this.currentTimings = {
-            completeCycle: 3000
+            completeCycle: 4000
         }
         this.theTimer = timer(this.currentTimings, [
             {

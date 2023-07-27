@@ -53,7 +53,8 @@ import cake4IMGLarge from "@/assets/images/collage-dense/cake-rasberry@w420.jpg"
 .collage-dense {
 
     height: 40em;
-    width: 40em;
+    max-width: 40em;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -68,7 +69,7 @@ import cake4IMGLarge from "@/assets/images/collage-dense/cake-rasberry@w420.jpg"
         background: #fff;
         position: absolute;
         z-index: 15;
-        border-radius: 10rem;
+        border-radius: 10em;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -77,7 +78,7 @@ import cake4IMGLarge from "@/assets/images/collage-dense/cake-rasberry@w420.jpg"
     }
 
     &__img-bg {
-        border-radius: 3rem;
+        border-radius: 3em;
 
         & img {
             height: 100%;
@@ -87,10 +88,10 @@ import cake4IMGLarge from "@/assets/images/collage-dense/cake-rasberry@w420.jpg"
         }
 
         &--main {
-            height: 28.5rem;
-            width: 18.625rem;
+            height: 28.5em;
+            width: 18.625em;
 
-            border-radius: 3rem;
+            border-radius: 3em;
             z-index: 10;
         }
 

@@ -66,6 +66,8 @@ import image5Large from "@/assets/images/collage-sparse/moth@w472.jpg"
     justify-content: center;
     font-size: inherit;
 
+
+
     &__img {
         border-radius: 20%;
         display: flex;
@@ -78,7 +80,7 @@ import image5Large from "@/assets/images/collage-sparse/moth@w472.jpg"
         font-weight: 600;
         background: #000;
         text-decoration: none;
-        font-size: 1rem;
+
 
         & img {
             border-radius: inherit;

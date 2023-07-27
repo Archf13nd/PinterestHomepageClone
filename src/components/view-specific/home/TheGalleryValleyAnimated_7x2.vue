@@ -1,7 +1,8 @@
 
 <script setup>
 defineProps({
-    isGalleryChanging: Boolean
+    isGalleryChanging: Boolean,
+    currentFrame: Number
 })
 </script>
 
@@ -10,15 +11,17 @@ defineProps({
         <div class="gallery__wrapper">
             <div class="gallery__overlay"></div>
             <!-- Renders 7 1x2 grids using responsive image loading with srcset and animates transition when new gallery is loaded in -->
-            <div class="gallery__1x2" :style="{ 'animation-delay': calcAnimationDelay(i) }"
-                :class="[`gallery__1x2--${i}`, { 'render-1x2': isGalleryChanging }]" v-for="i in  7 " :key="i">
+            <div class="gallery__1x2" :class="[`gallery__1x2--${i}`, { 'render-1x2': isGalleryChanging }]"
+                :style="{ 'animation-delay': `${i * 0.2}s` }" v-for="i in  7 " :key="i">
                 <div class="gallery__bg-img" :class="`gallery__bg-img--${i}`">
-                    <img :srcset="`${imageFiles[currentTheme]['hd'][i - 1]} 240w, ${imageFiles[currentTheme]['4k'][i - 1]} 480w`"
+                    <img loading="lazy"
+                        :srcset="`${imageFiles[currentTheme]['hd'][i - 1]} 240w, ${imageFiles[currentTheme]['4k'][i - 1]} 480w`"
                         sizes="(max-width: 1920px) 240px, 480px" :src="`${imageFiles[currentTheme][i - 1]}`" alt="">
                 </div>
                 <!-- The ternary operator is used to grab the last 4 images in the array-->
                 <div v-if="[1, 2, 6, 7].includes(i)" class="gallery__bg-img">
-                    <img :srcset="`${imageFiles[currentTheme]['hd'][i < 3 ? 6 + i : 6 + 10 - i]} 240w, ${imageFiles[currentTheme]['4k'][i < 3 ? 6 + i : 6 + 10 - i]} 480w`"
+                    <img loading="lazy"
+                        :srcset="`${imageFiles[currentTheme]['hd'][i < 3 ? 6 + i : 6 + 10 - i]} 240w, ${imageFiles[currentTheme]['4k'][i < 3 ? 6 + i : 6 + 10 - i]} 480w`"
                         sizes="(max-width: 1920px) 240px, 480px" :src="`${imageFiles[currentTheme][i - 1]}`" alt="">
                 </div>
             </div>
@@ -31,7 +34,6 @@ export default {
     data() {
         return {
             devMode: true,
-            currentTheme: 'travel',
             imageFiles: {
                 'digital-art': {
                     hd: [],
@@ -52,12 +54,31 @@ export default {
 
             },
             imageURLs: [],
-            toRenderArray: [true, true, true, true, true, true, true],
             renderSpeed: 350,
-            interval: null
+            interval: null,
+            // DEV
+            currentTheme: 'new-look'
         }
     },
+    watch: {
+        currentFrame: function (currentFrame) {
+            setTimeout(() => {
 
+
+                const frame = currentFrame
+                if (frame === 0) {
+                    this.currentTheme = 'new-look'
+                    console.log(this.currentTheme)
+                } else if (frame === 1) {
+                    this.currentTheme = 'digital-art'
+                } else if (frame === 2) {
+                    this.currentTheme = 'food-ideas'
+                } else {
+                    this.currentTheme = 'travel'
+                }
+            }, 1250);
+        },
+    },
     methods: {
         calcAnimationDelay(index) {
             return (1 / 5) * index + 's'
@@ -176,7 +197,7 @@ export default {
 
 
 .render-1x2 {
-    animation: 2s forwards slideUpFade;
+    animation: 2.5s forwards slideUpFade;
 
 }
 

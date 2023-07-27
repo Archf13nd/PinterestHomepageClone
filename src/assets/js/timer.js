@@ -1,5 +1,3 @@
-import { transformRef } from 'vue/compiler-sfc'
-
 const timer = (object, timingsArray) => {
   const timings = {}
   timingsArray.forEach((e) => {
