@@ -26,16 +26,16 @@ export default {
         }
     },
     created() {
-        const galleryFilesW110 = import.meta.glob('/public/images/gallery-mobile-hero/w110/\*', { as: 'url', eager: true });
+        const galleryFilesW110 = import.meta.glob('@/assets/images/gallery-mobile-hero/w110/\*', { as: 'url', eager: true });
 
         for (const file in galleryFilesW110) {
             this.imagesW110.push(galleryFilesW110[file])
         }
-        const galleryFilesW220 = import.meta.glob("/public/images/gallery-mobile-hero/w220/\*", { as: 'url', eager: true })
+        const galleryFilesW220 = import.meta.glob("@/assets/images/gallery-mobile-hero/w220/\*", { as: 'url', eager: true })
         for (const file in galleryFilesW220) {
             this.imagesW220.push(galleryFilesW220[file])
         }
-        const galleryFilesW330 = import.meta.glob("/public/images/gallery-mobile-hero/w330/\*", { as: 'url', eager: true })
+        const galleryFilesW330 = import.meta.glob("@/assets/images/gallery-mobile-hero/w330/\*", { as: 'url', eager: true })
         for (const file in galleryFilesW330) {
             this.imagesW330.push(galleryFilesW330[file])
         }

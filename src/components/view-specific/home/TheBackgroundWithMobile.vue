@@ -1,12 +1,12 @@
 <script setup>
 import bp from "../../../../breakpoints.config"
 
-import phoneIMGSmall from "/public/images/shop/architecture@w120.jpg"
-import phoneIMGMedium from "/public/images/shop/architecture@w220.jpg"
-import phoneIMGLarge from "/public/images/shop/architecture@w440.jpg"
+import phoneIMGSmall from "@/assets/images/shop/architecture@w120.jpg"
+import phoneIMGMedium from "@/assets/images/shop/architecture@w220.jpg"
+import phoneIMGLarge from "@/assets/images/shop/architecture@w440.jpg"
 
-import profileIMGMedium from "/public/images/shop/portrait@w80.jpg"
-import profileIMGLarge from "/public/images/shop/portrait@w160.jpg"
+import profileIMGMedium from "@/assets/images/shop/portrait@w80.jpg"
+import profileIMGLarge from "@/assets/images/shop/portrait@w160.jpg"
 </script>
 
 
@@ -45,16 +45,16 @@ import profileIMGLarge from "/public/images/shop/portrait@w160.jpg"
 
 
     @media (max-width: $bp-desktop) and (max-resolution: 250dpi) {
-        background-image: url("/public/images/shop/woman-smiling@w960.jpg");
+        background-image: url("@/assets/images/shop/woman-smiling@w960.jpg");
     }
 
     @media (max-width: $bp-mobile) and (max-resolution: 150dpi) {
-        background-image: url("/public/images/shop/woman-smiling@w480.jpg");
+        background-image: url("@/assets/images/shop/woman-smiling@w480.jpg");
     }
 
     @media (min-width: $bp-desktop),
     (min-resolution: 250dpi) {
-        background-image: url("/public/images/shop/woman-smiling@w1920.jpg");
+        background-image: url("@/assets/images/shop/woman-smiling@w1920.jpg");
     }
 
     &__mobile {

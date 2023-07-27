@@ -66,42 +66,42 @@ export default {
     created() {
         console.log('what is going on')
 
-        const digitalArtFilesHD = import.meta.glob(`/public/images/gallery_desktop/digital-art/@H350/*`, { as: 'url', eager: true })
+        const digitalArtFilesHD = import.meta.glob(`@/assets/images/gallery_desktop/digital-art/@H350/*`, { as: 'url', eager: true })
         for (const file in digitalArtFilesHD) {
             this.imageFiles['digital-art'].hd.push(digitalArtFilesHD[file])
         }
 
-        const digitalArtFiles4K = import.meta.glob(`/public/images/gallery_desktop/digital-art/@H700/*`, { as: 'url', eager: true })
+        const digitalArtFiles4K = import.meta.glob(`@/assets/images/gallery_desktop/digital-art/@H700/*`, { as: 'url', eager: true })
         for (const file in digitalArtFiles4K) {
 
             this.imageFiles['digital-art']['4k'].push(digitalArtFiles4K[file])
         }
 
-        const newLookFilesHD = import.meta.glob(`/public/images/gallery_desktop/new-look/@H350/*`, { as: 'url', eager: true })
+        const newLookFilesHD = import.meta.glob(`@/assets/images/gallery_desktop/new-look/@H350/*`, { as: 'url', eager: true })
         for (const file in newLookFilesHD) {
             this.imageFiles['new-look'].hd.push(newLookFilesHD[file])
         }
 
-        const newLookFiles4K = import.meta.glob(`/public/images/gallery_desktop/new-look/@H700/*`, { as: 'url', eager: true })
+        const newLookFiles4K = import.meta.glob(`@/assets/images/gallery_desktop/new-look/@H700/*`, { as: 'url', eager: true })
         for (const file in newLookFiles4K) {
             this.imageFiles['new-look']['4k'].push(file)
         }
 
-        const foodIdeasFilesHD = import.meta.glob(`/public/images/gallery_desktop/food-ideas/@H350/*`, { as: 'url', eager: true })
+        const foodIdeasFilesHD = import.meta.glob(`@/assets/images/gallery_desktop/food-ideas/@H350/*`, { as: 'url', eager: true })
         for (const file in foodIdeasFilesHD) {
             this.imageFiles['food-ideas'].hd.push(foodIdeasFilesHD[file])
         }
 
-        const foodIdeasFiles4K = import.meta.glob(`/public/images/gallery_desktop/food-ideas/@H700/*`, { as: 'url', eager: true })
+        const foodIdeasFiles4K = import.meta.glob(`@/assets/images/gallery_desktop/food-ideas/@H700/*`, { as: 'url', eager: true })
         for (const file in foodIdeasFiles4K) {
             this.imageFiles['food-ideas']['4k'].push(file)
         }
-        const travelFilesHD = import.meta.glob(`/public/images/gallery_desktop/travel/@H350/*`, { as: 'url', eager: true })
+        const travelFilesHD = import.meta.glob(`@/assets/images/gallery_desktop/travel/@H350/*`, { as: 'url', eager: true })
         for (const file in travelFilesHD) {
             this.imageFiles['travel'].hd.push(travelFilesHD[file])
         }
 
-        const travelFiles4K = import.meta.glob(`/public/images/gallery_desktop/travel/@H700/*`, { as: 'url', eager: true })
+        const travelFiles4K = import.meta.glob(`@/assets/images/gallery_desktop/travel/@H700/*`, { as: 'url', eager: true })
         for (const file in travelFiles4K) {
             this.imageFiles['travel']['4k'].push(file)
         }

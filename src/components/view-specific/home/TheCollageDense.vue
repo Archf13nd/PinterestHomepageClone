@@ -1,22 +1,22 @@
 <script setup>
 import SearchIcon from "@/assets/icons/search.svg"
-const imgDirPath = '/images/collage-dense'
-import cakeMainIMGSmall from "/public/images/collage-dense/cake@w149.jpg"
-import cakeMainIMGMedium from "/public/images/collage-dense/cake@w334.jpg"
-import cakeMainIMGLarge from "/public/images/collage-dense/cake@w596.jpg"
 
-import cake2IMGSmall from "/public/images/collage-dense/cake-frosting@w105.jpg"
-import cake2IMGMedium from "/public/images/collage-dense/cake-frosting@w210.jpg"
-import cake2IMGLarge from "/public/images/collage-dense/cake-frosting@w420.jpg"
+import cakeMainIMGSmall from "@/assets/images/collage-dense/cake@w149.jpg"
+import cakeMainIMGMedium from "@/assets/images/collage-dense/cake@w334.jpg"
+import cakeMainIMGLarge from "@/assets/images/collage-dense/cake@w596.jpg"
 
-import cake3IMGSmall from "/public/images/collage-dense/cake-pink@w105.jpg"
-import cake3IMGMedium from "/public/images/collage-dense/cake-pink@w210.jpg"
-import cake3IMGLarge from "/public/images/collage-dense/cake-pink@w420.jpg"
+import cake2IMGSmall from "@/assets/images/collage-dense/cake-frosting@w105.jpg"
+import cake2IMGMedium from "@/assets/images/collage-dense/cake-frosting@w210.jpg"
+import cake2IMGLarge from "@/assets/images/collage-dense/cake-frosting@w420.jpg"
+
+import cake3IMGSmall from "@/assets/images/collage-dense/cake-pink@w105.jpg"
+import cake3IMGMedium from "@/assets/images/collage-dense/cake-pink@w210.jpg"
+import cake3IMGLarge from "@/assets/images/collage-dense/cake-pink@w420.jpg"
 
 
-import cake4IMGSmall from "/public/images/collage-dense/cake-rasberry@w105.jpg"
-import cake4IMGMedium from "/public/images/collage-dense/cake-rasberry@w210.jpg"
-import cake4IMGLarge from "/public/images/collage-dense/cake-rasberry@w420.jpg"
+import cake4IMGSmall from "@/assets/images/collage-dense/cake-rasberry@w105.jpg"
+import cake4IMGMedium from "@/assets/images/collage-dense/cake-rasberry@w210.jpg"
+import cake4IMGLarge from "@/assets/images/collage-dense/cake-rasberry@w420.jpg"
 
 
 
