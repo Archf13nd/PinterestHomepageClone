@@ -4,23 +4,23 @@ const imgDirPath = '/images/collage-sparse'
 // Images
 
 import image1Small from "@/assets/images/collage-sparse/cacti@w210.jpg"
-import image1Medium from "@/assets/images/collage-sparse/cacti@w420.jpg"
+import image1Medium from "@/assets/images/collage-sparse/cacti@w420.jpg?w=400&h=420"
 import image1Large from "@/assets/images/collage-sparse/cacti@w840.jpg"
 
 import image2Small from "@/assets/images/collage-sparse/ladybugs@w118.jpg"
-import image2Medium from "@/assets/images/collage-sparse/ladybugs@w236.jpg"
+import image2Medium from "@/assets/images/collage-sparse/ladybugs@w236.jpg?w=222&h=224"
 import image2Large from "@/assets/images/collage-sparse/ladybugs@w472.jpg"
 
 import image3Small from "@/assets/images/collage-sparse/blush@w87.jpg"
-import image3Medium from "@/assets/images/collage-sparse/blush@w174.jpg"
+import image3Medium from "@/assets/images/collage-sparse/blush@w174.jpg?w=165&h=172"
 import image3Large from "@/assets/images/collage-sparse/blush@w348.jpg"
 
 import image4Small from "@/assets/images/collage-sparse/desk-setup@w118.jpg"
-import image4Medium from "@/assets/images/collage-sparse/desk-setup@w236.jpg"
+import image4Medium from "@/assets/images/collage-sparse/desk-setup@w236.jpg?w=222&h=224"
 import image4Large from "@/assets/images/collage-sparse/desk-setup@w472.jpg"
 
 import image5Small from "@/assets/images/collage-sparse/moth@w118.jpg"
-import image5Medium from "@/assets/images/collage-sparse/moth@w236.jpg"
+import image5Medium from "@/assets/images/collage-sparse/moth@w236.jpg?w=222&h=224"
 import image5Large from "@/assets/images/collage-sparse/moth@w472.jpg"
 </script>
 
