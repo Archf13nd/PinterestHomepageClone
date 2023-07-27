@@ -9,12 +9,12 @@
   <div class="scroller" :style="{ 'height': pageHeight * 2 + 'px' }">
   </div>
   <main class="page">
-    <!-- <div class="info-warning">
+    <div class="info-warning">
       <p> I want to make it abundantly clear that this website is an independent recreation of Pinterest's property and is
         not
         associated, endorsed, or affiliated with Pinterest in any manner. It is created soley for educational purposes. If
         there is any problem please message me at ideaswrittenonleaves@gmail.com</p>
-    </div> -->
+    </div>
     <div class="page__window" :style="{ 'top': getPosFromTop + 'px' }">
       <section class="section section-1" id="hero" :style="{ 'height': pageHeight + 'px' }">
         <AppHeroMobile v-if="pageWidth < 900"></AppHeroMobile>

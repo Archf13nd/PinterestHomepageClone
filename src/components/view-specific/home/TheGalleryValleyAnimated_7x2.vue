@@ -12,7 +12,7 @@ defineProps({
             <div class="gallery__overlay"></div>
             <!-- Renders 7 1x2 grids using responsive image loading with srcset and animates transition when new gallery is loaded in -->
             <div class="gallery__1x2" :class="[`gallery__1x2--${i}`, { 'render-1x2': isGalleryChanging }]"
-                :style="{ 'animation-delay': `${i * 0.2}s` }" v-for="i in  7 " :key="i">
+                :style="{ 'animation-delay': `${i * 0.09}s` }" v-for="i in  7 " :key="i">
                 <div class="gallery__bg-img" :class="`gallery__bg-img--${i}`">
                     <img loading="lazy"
                         :srcset="`${imageFiles[currentTheme]['hd'][i - 1]} 240w, ${imageFiles[currentTheme]['4k'][i - 1]} 480w`"
@@ -56,7 +56,6 @@ export default {
             imageURLs: [],
             renderSpeed: 350,
             interval: null,
-            // DEV
             currentTheme: 'new-look'
         }
     },
@@ -197,7 +196,7 @@ export default {
 
 
 .render-1x2 {
-    animation: 2.5s forwards slideUpFade;
+    animation: 2s forwards slideUpFade;
 
 }
 

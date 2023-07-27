@@ -65,7 +65,6 @@ export default {
             } else {
                 this.currentFrame = 0
             }
-            console.log(this.currentFrame)
         },
         changeSlide(e) {
             if (e === 0) {
@@ -88,7 +87,7 @@ export default {
     watch: {
         'currentTimings.timing-1': function () {
             if (this.currentTimings['timing-1'] % 2) {
-                console.log(this.currentTimings)
+
                 this.loadNextTitle()
                 this.updateTitle = true
             } else {
@@ -109,7 +108,7 @@ export default {
     },
     created() {
         this.currentTimings = {
-            completeCycle: 4000
+            completeCycle: 2800
         }
         this.theTimer = timer(this.currentTimings, [
             {
