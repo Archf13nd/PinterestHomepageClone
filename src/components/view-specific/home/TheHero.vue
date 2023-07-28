@@ -27,12 +27,11 @@
 </template>
 
 <script>
-import { defineAsyncComponent } from 'vue'
 
-const BtnRow = defineAsyncComponent(() => import("@/components/Base/AppBtnRow.vue"))
-const Gallery = defineAsyncComponent(() => import("./TheGalleryValleyAnimated_7x2.vue"))
-const Banner = defineAsyncComponent(() => import("./TheBanner.vue"))
-const AppHeader = defineAsyncComponent(() => import("./TheHeader.vue"))
+import BtnRow from "../../Base/AppBtnRow.vue"
+import Gallery from "./TheGalleryValleyAnimated_7x2.vue"
+import Banner from './TheBanner.vue'
+import AppHeader from "./TheHeader.vue"
 
 export default {
     components: {

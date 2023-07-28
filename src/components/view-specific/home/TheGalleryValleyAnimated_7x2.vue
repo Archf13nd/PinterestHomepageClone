@@ -13,14 +13,12 @@ defineProps({
             <div class="gallery__1x2" :class="[`gallery__1x2--${i}`, { 'render-1x2': render }]"
                 :style="{ 'animation-delay': `${i * .20}s` }" v-for="i in  7 " :key="i">
                 <div class="gallery__bg-img" :class="`gallery__bg-img--${i}`">
-                    <img loading="lazy"
-                        :srcset="`${imageFiles[currentTheme]['hd'][i - 1]} 240w, ${imageFiles[currentTheme]['4k'][i - 1]} 480w`"
+                    <img :srcset="`${imageFiles[currentTheme]['hd'][i - 1]} 240w, ${imageFiles[currentTheme]['4k'][i - 1]} 480w`"
                         sizes="(max-width: 1920px) 240px, 480px" :src="`${imageFiles[currentTheme][i - 1]}`" alt="">
                 </div>
                 <!-- The ternary operator is used to grab the last 4 images in the array-->
                 <div v-if="[1, 2, 6, 7].includes(i)" class="gallery__bg-img">
-                    <img loading="lazy"
-                        :srcset="`${imageFiles[currentTheme]['hd'][i < 3 ? 6 + i : 6 + 10 - i]} 240w, ${imageFiles[currentTheme]['4k'][i < 3 ? 6 + i : 6 + 10 - i]} 480w`"
+                    <img :srcset="`${imageFiles[currentTheme]['hd'][i < 3 ? 6 + i : 6 + 10 - i]} 240w, ${imageFiles[currentTheme]['4k'][i < 3 ? 6 + i : 6 + 10 - i]} 480w`"
                         sizes="(max-width: 1920px) 240px, 480px" :src="`${imageFiles[currentTheme][i - 1]}`" alt="">
                 </div>
             </div>
