@@ -1,0 +1,62 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Snapshots TheHero.vue > renders correctly 1`] = `
+<div
+  class="hero"
+  data-v-ec117df3=""
+>
+  <app-header-stub
+    data-v-ec117df3=""
+  />
+  <div
+    class="hero__heading"
+    data-v-ec117df3=""
+  >
+    <h2
+      data-v-ec117df3=""
+    >
+      hero.header-top 
+      <br
+        data-v-ec117df3=""
+      />
+      <transition-stub
+        appear="false"
+        css="true"
+        data-v-ec117df3=""
+        mode="out-in"
+        name="slide-out-in"
+        persisted="false"
+      >
+        <span
+          data-v-ec117df3=""
+          style="color: rgb(194, 139, 0);"
+        >
+          hero.header-look
+        </span>
+      </transition-stub>
+    </h2>
+  </div>
+  <btn-row-stub
+    currentbtn="0"
+    currentcolor="#c28B00"
+    data-v-ec117df3=""
+  />
+  <div
+    class="hero-gallery-container"
+    data-v-ec117df3=""
+  >
+    <div
+      class="overlay"
+      data-v-ec117df3=""
+    />
+    <gallery-stub
+      currentframe="0"
+      data-v-ec117df3=""
+    />
+  </div>
+  <banner-stub
+    backgroundcolor="#c28B00"
+    data-v-ec117df3=""
+  />
+</div>
+`;

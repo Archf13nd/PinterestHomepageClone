@@ -1,0 +1,136 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Snapshots TheSignUpForm.vue > renders correctly 1`] = `
+<section
+  class="signup"
+  data-v-365e8c2a=""
+>
+  <div
+    class="signup__logo mt-1"
+    data-v-365e8c2a=""
+  >
+    <app-icon-stub
+      alttext="Pinterest Brand Logo"
+      data-v-365e8c2a=""
+      file="/PinterestHomepageClone/src/assets/logos/badgeRGB.png"
+      fontsize="2em"
+    />
+  </div>
+  <h2
+    class="signup__heading mt-quarter"
+    data-v-365e8c2a=""
+  >
+    signup.title
+  </h2>
+  <p
+    class="signup__text"
+    data-v-365e8c2a=""
+  >
+    signup.subtitle
+  </p>
+  <div
+    class="signup__wrapper"
+    data-v-365e8c2a=""
+  >
+    <form
+      class="signup__form mt-half"
+      data-v-365e8c2a=""
+      novalidate=""
+    >
+      <app-email-input-stub
+        data-v-365e8c2a=""
+        email=""
+        validationinfo="[object Object]"
+      />
+      <app-password-input-stub
+        data-v-365e8c2a=""
+        password=""
+        validationinfo="[object Object]"
+      />
+      <app-date-input-stub
+        data-v-365e8c2a=""
+        validationinfo="[object Object]"
+      />
+      <button
+        class="signup__btn signup__btn--pinterest mt-third"
+        data-v-365e8c2a=""
+      >
+        signup.cta-continue
+      </button>
+    </form>
+    <div
+      class="signup__divider"
+      data-v-365e8c2a=""
+    >
+      signup.or
+    </div>
+    <button
+      class="signup__btn signup__btn--facebook"
+      data-v-365e8c2a=""
+    >
+      <div
+        class="signup__btn__text"
+        data-v-365e8c2a=""
+      >
+        signup.cta-facebook
+      </div>
+    </button>
+    <button
+      class="signup__btn signup__btn--google mt-third"
+      data-v-365e8c2a=""
+    >
+      <div
+        class="signup__btn__text"
+        data-v-365e8c2a=""
+      >
+        signup.cta-google
+      </div>
+    </button>
+    <i18n-t
+      class="signup__footer-text mt-half"
+      data-v-365e8c2a=""
+      keypath="signup.legal-text"
+      tag="p"
+    >
+      <a
+        data-v-365e8c2a=""
+        href="#"
+      >
+        signup.tos
+      </a>
+      <a
+        data-v-365e8c2a=""
+        href="#"
+      >
+        signup.privacy-policy
+      </a>
+      <a
+        data-v-365e8c2a=""
+        href="#"
+      >
+        signup.collection
+      </a>
+    </i18n-t>
+    <i18n-t
+      class="signup__footer-text"
+      data-v-365e8c2a=""
+      keypath="signup.already-member"
+      tag="p"
+    >
+      <a
+        data-v-365e8c2a=""
+        href="#"
+      >
+        signup.already-member-link
+      </a>
+    </i18n-t>
+  </div>
+  <a
+    class="signup__business-link"
+    data-v-365e8c2a=""
+    href="#"
+  >
+    signup.business-account
+  </a>
+</section>
+`;
